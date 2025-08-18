@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Loading Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .loading-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spark-circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent, transparent, #00ffff, transparent, transparent);
+            animation: rotate 2s linear infinite;
+        }
+
+        .spark-circle::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fd79a8);
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.8;
+        }
+
+        .inner-circle {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite alternate;
+        }
+
+        .core {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #00ffff 0%, #0080ff 50%, transparent 100%);
+            border-radius: 50%;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        .spark {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .spark:nth-child(1) { top: 10%; left: 50%; animation: spark1 0.8s ease-in-out infinite; }
+        .spark:nth-child(2) { top: 25%; right: 15%; animation: spark2 1.2s ease-in-out infinite 0.2s; }
+        .spark:nth-child(3) { bottom: 25%; left: 15%; animation: spark3 1s ease-in-out infinite 0.4s; }
+        .spark:nth-child(4) { bottom: 10%; right: 45%; animation: spark4 0.9s ease-in-out infinite 0.6s; }
+        .spark:nth-child(5) { top: 50%; left: 10%; animation: spark5 1.1s ease-in-out infinite 0.8s; }
+        .spark:nth-child(6) { top: 50%; right: 10%; animation: spark6 0.7s ease-in-out infinite 1s; }
+
+        .lightning {
+            position: absolute;
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, #00ffff, transparent);
+            transform-origin: top center;
+            animation: lightning 2s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .lightning:nth-child(1) { top: 20px; left: 50%; animation-delay: 0s; }
+        .lightning:nth-child(2) { top: 20px; left: 60%; animation-delay: 0.5s; }
+        .lightning:nth-child(3) { top: 20px; left: 40%; animation-delay: 1s; }
+
+        .loading-text {
+            margin-top: 180px;
+            color: #00ffff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        .progress-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(0, 255, 255, 0.2);
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ffff, #0080ff, #00ffff);
+            background-size: 200% 100%;
+            border-radius: 2px;
+            width: 0%;
+            animation: progressFill 4s ease-out forwards, progressGlow 1s ease-in-out infinite alternate;
+        }
+
+        /* Connected State Styles */
+        .connected {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .connected.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* CLI Terminal Styles */
+        .cli-terminal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 70vh;
+            max-width: 900px;
+            max-height: 600px;
+            background: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            line-height: 1.4;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            overflow-y: auto;
+            z-index: 1000;
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), 
+                        0 0 40px rgba(0, 255, 0, 0.2),
+                        inset 0 0 20px rgba(0, 255, 0, 0.1);
+        }
+
+        #cliContent {
+            width: 100%;
+            text-align: left;
+        }
+
+        .cli-terminal.show {
+            opacity: 1;
+        }
+
+        .cli-line {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(-10px);
+            animation: lineAppear 0.3s ease-out forwards;
+        }
+
+        .cli-line.typing {
+            border-right: 2px solid #00ff00;
+            animation: typing 1s steps(40) forwards, blink 1s infinite;
+        }
+
+        .cli-prompt {
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .cli-command {
+            color: #ffffff;
+        }
+
+        .cli-output {
+            color: #00aa00;
+            margin-left: 20px;
+        }
+
+        .cli-success {
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            font-weight: bold;
+        }
+
+        .cli-cursor {
+            display: inline-block;
+            background: #00ff00;
+            width: 10px;
+            height: 20px;
+            animation: blink 1s infinite;
+        }
+
+        .connection-nodes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+        }
+
+        .node:nth-child(1) { top: 20%; left: 20%; }
+        .node:nth-child(2) { top: 20%; right: 20%; }
+        .node:nth-child(3) { bottom: 20%; left: 20%; }
+        .node:nth-child(4) { bottom: 20%; right: 20%; }
+        .node:nth-child(5) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+            animation: connectionPulse 1.5s ease-in-out infinite;
+        }
+
+        .line1 { top: calc(20% + 6px); left: 20%; width: 60%; transform: rotate(0deg); }
+        .line2 { top: calc(50% - 1px); left: 20%; width: 30%; transform: rotate(90deg); transform-origin: left center; }
+        .line3 { top: calc(50% - 1px); right: 20%; width: 30%; transform: rotate(-90deg); transform-origin: right center; }
+        .line4 { bottom: calc(20% + 6px); left: 20%; width: 60%; }
+
+        .success-text {
+            margin-top: 180px;
+            color: #00ff00;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: successGlow 2s ease-in-out infinite alternate;
+        }
+
+        /* Animations */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 0.4; }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff; }
+            100% { box-shadow: 0 0 30px #0080ff, 0 0 60px #0080ff, 0 0 90px #0080ff; }
+        }
+
+        @keyframes spark1 {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        @keyframes spark2 {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+
+        @keyframes spark3 {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.8); }
+        }
+
+        @keyframes spark4 {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.4) rotate(90deg); }
+        }
+
+        @keyframes spark5 {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.6); }
+        }
+
+        @keyframes spark6 {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.3) rotate(270deg); }
+        }
+
+        @keyframes lightning {
+            0% { opacity: 0; transform: scaleY(0); }
+            10% { opacity: 1; transform: scaleY(1) rotate(-5deg); }
+            20% { opacity: 0; transform: scaleY(0) rotate(5deg); }
+            30% { opacity: 1; transform: scaleY(1) rotate(-3deg); }
+            40% { opacity: 0; transform: scaleY(0); }
+            100% { opacity: 0; transform: scaleY(0); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+            100% { text-shadow: 0 0 20px #0080ff, 0 0 30px #0080ff, 0 0 40px #0080ff; }
+        }
+
+        @keyframes progressFill {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes progressGlow {
+            0% { box-shadow: 0 0 5px #00ffff; }
+            100% { box-shadow: 0 0 15px #0080ff, 0 0 25px #0080ff; }
+        }
+
+        @keyframes connectionPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes successGlow {
+            0% { text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; }
+            100% { text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00; }
+        }
+
+        @keyframes lineAppear {
+            0% { 
+                opacity: 0; 
+                transform: translateY(-10px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.8); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <!-- Loading Animation -->
+        <div class="loading-animation" id="loadingAnimation">
+            <div class="spark-circle"></div>
+            <div class="inner-circle"></div>
+            <div class="core"></div>
+            
+            <div class="spark"></div>
+            <div class="spark"></div>
+            <div class="spark"></div>
+            <div class="spark"></div>
+            <div class="spark"></div>
+            <div class="spark"></div>
+            
+            <div class="lightning"></div>
+            <div class="lightning"></div>
+            <div class="lightning"></div>
+            
+            <div class="loading-text">Connecting</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+        
+        <!-- Connected State -->
+        <div class="connected" id="connectedState">
+            <div class="connection-nodes">
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                
+                <div class="connection-line line1"></div>
+                <div class="connection-line line2"></div>
+                <div class="connection-line line3"></div>
+                <div class="connection-line line4"></div>
+            </div>
+            
+            <div class="success-text">Connected</div>
+        </div>
+        
+        <!-- CLI Terminal -->
+        <div class="cli-terminal" id="cliTerminal">
+            <div id="cliContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // CLI terminal content
+        const cliCommands = [
+            { type: 'prompt', text: 'C:\\ELECTRON>' },
+            { type: 'command', text: 'system_init.exe', delay: 800 },
+            { type: 'output', text: 'Initializing system components...', delay: 500 },
+            { type: 'output', text: 'Loading kernel modules... [OK]', delay: 700 },
+            { type: 'output', text: 'Starting network services... [OK]', delay: 600 },
+            { type: 'output', text: 'Mounting file systems... [OK]', delay: 800 },
+            { type: 'prompt', text: 'C:\\ELECTRON>' },
+            { type: 'command', text: 'app_startup.bat', delay: 900 },
+            { type: 'output', text: 'Electron Framework v28.0.0', delay: 400 },
+            { type: 'output', text: 'Chrome/120.0.6099.56 Electron/28.0.0', delay: 500 },
+            { type: 'output', text: 'Loading application resources...', delay: 600 },
+            { type: 'output', text: 'Parsing configuration files... [OK]', delay: 700 },
+            { type: 'output', text: 'Initializing renderer process... [OK]', delay: 800 },
+            { type: 'output', text: 'Setting up IPC channels... [OK]', delay: 500 },
+            { type: 'prompt', text: 'C:\\ELECTRON>' },
+            { type: 'command', text: 'launch_main.exe', delay: 1000 },
+            { type: 'output', text: 'Starting main window...', delay: 600 },
+            { type: 'output', text: 'GPU acceleration enabled... [OK]', delay: 700 },
+            { type: 'output', text: 'DevTools ready... [OK]', delay: 500 },
+            { type: 'success', text: '>>> APPLICATION READY <<<', delay: 800 },
+            { type: 'success', text: 'System operational. All modules loaded.', delay: 400 },
+            { type: 'prompt', text: 'C:\\ELECTRON>' },
+            { type: 'cursor', text: '', delay: 0 }
+        ];
+
+        let currentLine = 0;
+        let currentChar = 0;
+        let isTyping = false;
+
+        function typeCliLine(line, text, className = '') {
+            return new Promise((resolve) => {
+                const cliContent = document.getElementById('cliContent');
+                const lineDiv = document.createElement('div');
+                lineDiv.className = `cli-line ${className}`;
+                cliContent.appendChild(lineDiv);
+
+                if (text === '') {
+                    const cursor = document.createElement('span');
+                    cursor.className = 'cli-cursor';
+                    lineDiv.appendChild(cursor);
+                    resolve();
+                    return;
+                }
+
+                let i = 0;
+                function typeChar() {
+                    if (i < text.length) {
+                        lineDiv.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeChar, Math.random() * 50 + 30);
+                    } else {
+                        setTimeout(resolve, 200);
+                    }
+                }
+                typeChar();
+            });
+        }
+
+        async function runCliSequence() {
+            const cliContent = document.getElementById('cliContent');
+            cliContent.innerHTML = '';
+
+            for (let i = 0; i < cliCommands.length; i++) {
+                const cmd = cliCommands[i];
+                
+                await new Promise(resolve => setTimeout(resolve, cmd.delay));
+                
+                let className = '';
+                let displayText = cmd.text;
+                
+                switch (cmd.type) {
+                    case 'prompt':
+                        className = 'cli-prompt';
+                        break;
+                    case 'command':
+                        className = 'cli-command';
+                        displayText = cmd.text;
+                        break;
+                    case 'output':
+                        className = 'cli-output';
+                        break;
+                    case 'success':
+                        className = 'cli-success';
+                        break;
+                    case 'cursor':
+                        className = 'cli-prompt';
+                        break;
+                }
+                
+                await typeCliLine(i, displayText, className);
+            }
+        }
+
+        // Main loading sequence
+        setTimeout(() => {
+            const loadingAnimation = document.getElementById('loadingAnimation');
+            const connectedState = document.getElementById('connectedState');
+            
+            // Fade out loading animation
+            loadingAnimation.classList.add('fade-out');
+            
+            // Show connected state after fade out
+            setTimeout(() => {
+                loadingAnimation.style.display = 'none';
+                connectedState.classList.add('show');
+                
+                // After 15 seconds, show CLI terminal
+                setTimeout(() => {
+                    const cliTerminal = document.getElementById('cliTerminal');
+                    cliTerminal.classList.add('show');
+                    
+                    // Start CLI sequence after terminal is visible
+                    setTimeout(() => {
+                        runCliSequence();
+                    }, 800);
+                    
+                }, 15000); // 15 seconds after connected state
+                
+            }, 500);
+            
+        }, 4000);
+        
+        // Optional: Reset animation (useful for testing)
+        function resetAnimation() {
+            const loadingAnimation = document.getElementById('loadingAnimation');
+            const connectedState = document.getElementById('connectedState');
+            const cliTerminal = document.getElementById('cliTerminal');
+            
+            loadingAnimation.style.display = 'block';
+            loadingAnimation.classList.remove('fade-out');
+            connectedState.classList.remove('show');
+            cliTerminal.classList.remove('show');
+            
+            // Restart the cycle
+            setTimeout(() => {
+                loadingAnimation.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingAnimation.style.display = 'none';
+                    connectedState.classList.add('show');
+                    
+                    setTimeout(() => {
+                        cliTerminal.classList.add('show');
+                        setTimeout(() => {
+                            runCliSequence();
+                        }, 800);
+                    }, 15000);
+                    
+                }, 500);
+            }, 4000);
+        }
+        
+        // Double-click to reset (for demo purposes)
+        document.addEventListener('dblclick', resetAnimation);
+    </script>
+</body>
+</html>
