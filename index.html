@@ -4,8 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electricity Loading Animation</title>
+    <title>Ceylon Electricity Board - Invoice Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
     <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .form-section {
+                display: none !important;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,575 +31,791 @@
         }
 
         body {
-            height: 100vh;
-            background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            line-height: 1.2;
+            color: #000;
+            background: #f5f5f5;
         }
 
-        .loading-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 5px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
-        .spark-circle {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border: 2px solid transparent;
-            border-radius: 50%;
-            background: linear-gradient(45deg, transparent, transparent, #00ffff, transparent, transparent);
-            animation: rotate 2s linear infinite;
-        }
-
-        .spark-circle::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fd79a8);
-            z-index: -1;
-            filter: blur(10px);
-            opacity: 0.8;
-        }
-
-        .inner-circle {
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: pulse 1.5s ease-in-out infinite alternate;
-        }
-
-        .core {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, #00ffff 0%, #0080ff 50%, transparent 100%);
-            border-radius: 50%;
-            animation: glow 1s ease-in-out infinite alternate;
-        }
-
-        .spark {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00ffff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
-        }
-
-        .spark:nth-child(1) { top: 10%; left: 50%; animation: spark1 0.8s ease-in-out infinite; }
-        .spark:nth-child(2) { top: 25%; right: 15%; animation: spark2 1.2s ease-in-out infinite 0.2s; }
-        .spark:nth-child(3) { bottom: 25%; left: 15%; animation: spark3 1s ease-in-out infinite 0.4s; }
-        .spark:nth-child(4) { bottom: 10%; right: 45%; animation: spark4 0.9s ease-in-out infinite 0.6s; }
-        .spark:nth-child(5) { top: 50%; left: 10%; animation: spark5 1.1s ease-in-out infinite 0.8s; }
-        .spark:nth-child(6) { top: 50%; right: 10%; animation: spark6 0.7s ease-in-out infinite 1s; }
-
-        .lightning {
-            position: absolute;
-            width: 2px;
-            height: 60px;
-            background: linear-gradient(to bottom, transparent, #00ffff, transparent);
-            transform-origin: top center;
-            animation: lightning 2s ease-in-out infinite;
-            opacity: 0;
-        }
-
-        .lightning:nth-child(1) { top: 20px; left: 50%; animation-delay: 0s; }
-        .lightning:nth-child(2) { top: 20px; left: 60%; animation-delay: 0.5s; }
-        .lightning:nth-child(3) { top: 20px; left: 40%; animation-delay: 1s; }
-
-        .loading-text {
-            margin-top: 180px;
-            color: #00ffff;
-            font-size: 18px;
+        .form-group label {
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: textGlow 2s ease-in-out infinite alternate;
+            margin-bottom: 5px;
+            font-size: 12px;
         }
 
-        .progress-bar {
-            width: 200px;
-            height: 4px;
-            background: rgba(0, 255, 255, 0.2);
-            border-radius: 2px;
-            margin-top: 20px;
-            overflow: hidden;
+        .form-group input, .form-group select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .autocomplete-container {
             position: relative;
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #00ffff, #0080ff, #00ffff);
-            background-size: 200% 100%;
-            border-radius: 2px;
-            width: 0%;
-            animation: progressFill 4s ease-out forwards, progressGlow 1s ease-in-out infinite alternate;
-        }
-
-        /* Connected State Styles */
-        .connected {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.5s ease-in-out;
-        }
-
-        .connected.show {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* CLI Terminal Styles */
-        .cli-terminal {
+        .autocomplete-suggestions {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vw;
-            height: 70vh;
-            max-width: 900px;
-            max-height: 600px;
-            background: #000;
-            color: #00ff00;
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            line-height: 1.4;
-            padding: 30px;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            max-height: 200px;
             overflow-y: auto;
             z-index: 1000;
-            border: 2px solid #00ff00;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), 
-                        0 0 40px rgba(0, 255, 0, 0.2),
-                        inset 0 0 20px rgba(0, 255, 0, 0.1);
+            display: none;
         }
 
-        #cliContent {
+        .autocomplete-suggestions.show {
+            display: block;
+        }
+
+        .autocomplete-item {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+
+        .autocomplete-item:hover {
+            background: #f0f8ff;
+        }
+
+        .line-items-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .line-item-form {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr auto;
+            gap: 10px;
+            align-items: end;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: #007acc;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .line-items-table {
             width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 11px;
+        }
+
+        .line-items-table th,
+        .line-items-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
             text-align: left;
         }
 
-        .cli-terminal.show {
-            opacity: 1;
-        }
-
-        .cli-line {
-            margin: 0;
-            padding: 0;
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateY(-10px);
-            animation: lineAppear 0.3s ease-out forwards;
-        }
-
-        .cli-line.typing {
-            border-right: 2px solid #00ff00;
-            animation: typing 1s steps(40) forwards, blink 1s infinite;
-        }
-
-        .cli-prompt {
-            color: #00ff00;
-            text-shadow: 0 0 5px #00ff00;
-        }
-
-        .cli-command {
-            color: #ffffff;
-        }
-
-        .cli-output {
-            color: #00aa00;
-            margin-left: 20px;
-        }
-
-        .cli-success {
-            color: #00ff00;
-            text-shadow: 0 0 10px #00ff00;
+        .line-items-table th {
+            background: #f8f9fa;
             font-weight: bold;
         }
 
-        .cli-cursor {
-            display: inline-block;
-            background: #00ff00;
-            width: 10px;
-            height: 20px;
-            animation: blink 1s infinite;
+        .line-items-table .text-right {
+            text-align: right;
         }
 
-        .connection-nodes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .grand-total {
+            font-size: 14px;
+            font-weight: bold;
+            background: #e9ecef;
         }
 
-        .node {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #00ff00;
+        .container {
+            max-width: 210mm;
+            margin: 20px auto;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            border: 2px solid #000;
+            margin-bottom: 2px;
+        }
+
+        .logo-section {
+            width: 60px;
+            border-right: 2px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
             border-radius: 50%;
-            box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 8px;
+            background: #f0f0f0;
         }
 
-        .node:nth-child(1) { top: 20%; left: 20%; }
-        .node:nth-child(2) { top: 20%; right: 20%; }
-        .node:nth-child(3) { bottom: 20%; left: 20%; }
-        .node:nth-child(4) { bottom: 20%; right: 20%; }
-        .node:nth-child(5) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-
-        .connection-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00ff00, transparent);
-            animation: connectionPulse 1.5s ease-in-out infinite;
+        .title-section {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
         }
 
-        .line1 { top: calc(20% + 6px); left: 20%; width: 60%; transform: rotate(0deg); }
-        .line2 { top: calc(50% - 1px); left: 20%; width: 30%; transform: rotate(90deg); transform-origin: left center; }
-        .line3 { top: calc(50% - 1px); right: 20%; width: 30%; transform: rotate(-90deg); transform-origin: right center; }
-        .line4 { bottom: calc(20% + 6px); left: 20%; width: 60%; }
-
-        .success-text {
-            margin-top: 180px;
-            color: #00ff00;
-            font-size: 20px;
+        .main-title {
+            font-size: 14px;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: successGlow 2s ease-in-out infinite alternate;
+            margin-bottom: 2px;
         }
 
-        /* Animations */
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .subtitle {
+            font-size: 10px;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.1); opacity: 0.4; }
+        .office-info {
+            width: 150px;
+            border-left: 2px solid #000;
+            padding: 10px;
+            text-align: center;
         }
 
-        @keyframes glow {
-            0% { box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff; }
-            100% { box-shadow: 0 0 30px #0080ff, 0 0 60px #0080ff, 0 0 90px #0080ff; }
+        .office-title {
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        @keyframes spark1 {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1.5); }
+        .info-section {
+            display: flex;
+            border: 2px solid #000;
+            border-top: none;
+            margin-bottom: 2px;
         }
 
-        @keyframes spark2 {
-            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        .info-left {
+            flex: 1;
+            border-right: 1px solid #000;
         }
 
-        @keyframes spark3 {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1.8); }
+        .info-right {
+            width: 150px;
         }
 
-        @keyframes spark4 {
-            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1.4) rotate(90deg); }
+        .info-row {
+            display: flex;
+            border-bottom: 1px solid #000;
+            min-height: 25px;
         }
 
-        @keyframes spark5 {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1.6); }
+        .info-row:last-child {
+            border-bottom: none;
         }
 
-        @keyframes spark6 {
-            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1.3) rotate(270deg); }
+        .info-label {
+            width: 120px;
+            padding: 5px 8px;
+            border-right: 1px solid #000;
+            background: #f8f8f8;
         }
 
-        @keyframes lightning {
-            0% { opacity: 0; transform: scaleY(0); }
-            10% { opacity: 1; transform: scaleY(1) rotate(-5deg); }
-            20% { opacity: 0; transform: scaleY(0) rotate(5deg); }
-            30% { opacity: 1; transform: scaleY(1) rotate(-3deg); }
-            40% { opacity: 0; transform: scaleY(0); }
-            100% { opacity: 0; transform: scaleY(0); }
+        .info-value {
+            flex: 1;
+            padding: 5px 8px;
         }
 
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
-            100% { text-shadow: 0 0 20px #0080ff, 0 0 30px #0080ff, 0 0 40px #0080ff; }
+        .table-container {
+            border: 2px solid #000;
+            margin-bottom: 2px;
         }
 
-        @keyframes progressFill {
-            0% { width: 0%; }
-            100% { width: 100%; }
+        .table-header {
+            display: flex;
+            background: #f0f0f0;
+            border-bottom: 2px solid #000;
+            font-weight: bold;
+            text-align: center;
         }
 
-        @keyframes progressGlow {
-            0% { box-shadow: 0 0 5px #00ffff; }
-            100% { box-shadow: 0 0 15px #0080ff, 0 0 25px #0080ff; }
+        .col-sn { width: 30px; }
+        .col-description { flex: 1; }
+        .col-unit { width: 40px; }
+        .col-rate { width: 60px; }
+        .col-qty { width: 50px; }
+        .col-amount { width: 70px; }
+        .col-cert-qty { width: 50px; }
+        .col-cert-amount { width: 80px; }
+
+        .table-header > div {
+            padding: 8px 4px;
+            border-right: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        @keyframes connectionPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+        .table-header > div:last-child {
+            border-right: none;
         }
 
-        @keyframes successGlow {
-            0% { text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; }
-            100% { text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00; }
+        .table-row {
+            display: flex;
+            border-bottom: 1px solid #000;
+            min-height: 20px;
         }
 
-        @keyframes lineAppear {
-            0% { 
-                opacity: 0; 
-                transform: translateY(-10px); 
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row > div {
+            padding: 3px 4px;
+            border-right: 1px solid #000;
+            font-size: 9px;
+        }
+
+        .table-row > div:last-child {
+            border-right: none;
+        }
+
+        .summary-section {
+            border: 2px solid #000;
+            border-top: none;
+            min-height: 80px;
+        }
+
+        .summary-text {
+            padding: 10px;
+            text-align: center;
+            font-size: 9px;
+            line-height: 1.4;
+        }
+
+        .signature-section {
+            display: flex;
+            border: 2px solid #000;
+            border-top: none;
+            margin-bottom: 2px;
+        }
+
+        .signature-left {
+            flex: 1;
+            border-right: 1px solid #000;
+            padding: 10px;
+        }
+
+        .signature-right {
+            width: 200px;
+            padding: 10px;
+        }
+
+        .signature-row {
+            margin-bottom: 15px;
+        }
+
+        .signature-label {
+            font-size: 9px;
+            margin-bottom: 20px;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #000;
+            height: 1px;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 8px;
+            margin-top: 10px;
+        }
+
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @media screen and (max-width: 800px) {
+            .line-item-form {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
-            100% { 
-                opacity: 1; 
-                transform: translateY(0); 
+            
+            .form-row {
+                grid-template-columns: 1fr;
             }
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        .fade-out {
-            animation: fadeOut 0.5s ease-out forwards;
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0.8); }
         }
     </style>
 </head>
 <body>
-    <div class="loading-container">
-        <!-- Loading Animation -->
-        <div class="loading-animation" id="loadingAnimation">
-            <div class="spark-circle"></div>
-            <div class="inner-circle"></div>
-            <div class="core"></div>
-            
-            <div class="spark"></div>
-            <div class="spark"></div>
-            <div class="spark"></div>
-            <div class="spark"></div>
-            <div class="spark"></div>
-            <div class="spark"></div>
-            
-            <div class="lightning"></div>
-            <div class="lightning"></div>
-            <div class="lightning"></div>
-            
-            <div class="loading-text">Connecting</div>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
+    <div class="app-container" x-data="invoiceApp()">
+        <!-- Form Section -->
+        <div class="form-section no-print">
+            <h2>Invoice Information</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Contractor Name</label>
+                    <input type="text" x-model="invoiceData.contractorName" placeholder="Enter contractor name">
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" x-model="invoiceData.location" placeholder="Enter location">
+                </div>
+                <div class="form-group">
+                    <label>Service Number</label>
+                    <input type="text" x-model="invoiceData.serviceNumber" placeholder="Enter service number">
+                </div>
+                <div class="form-group">
+                    <label>Report Date</label>
+                    <input type="date" x-model="invoiceData.reportDate">
+                </div>
             </div>
         </div>
-        
-        <!-- Connected State -->
-        <div class="connected" id="connectedState">
-            <div class="connection-nodes">
-                <div class="node"></div>
-                <div class="node"></div>
-                <div class="node"></div>
-                <div class="node"></div>
-                <div class="node"></div>
-                
-                <div class="connection-line line1"></div>
-                <div class="connection-line line2"></div>
-                <div class="connection-line line3"></div>
-                <div class="connection-line line4"></div>
-            </div>
+
+        <!-- Line Items Section -->
+        <div class="line-items-section no-print">
+            <h2>Line Items</h2>
             
-            <div class="success-text">Connected</div>
+            <!-- Add Line Item Form -->
+            <div class="line-item-form">
+                <div class="form-group">
+                    <label>Description</label>
+                    <div class="autocomplete-container">
+                        <input 
+                            type="text" 
+                            x-model="currentItem.description"
+                            @input="showSuggestions = true"
+                            @blur="setTimeout(() => showSuggestions = false, 200)"
+                            placeholder="Start typing description...">
+                        <div class="autocomplete-suggestions" :class="{ 'show': showSuggestions && filteredSuggestions.length > 0 }">
+                            <template x-for="suggestion in filteredSuggestions" :key="suggestion.description">
+                                <div class="autocomplete-item" @click="selectSuggestion(suggestion)">
+                                    <div x-text="suggestion.description"></div>
+                                    <small style="color: #666;">Rs. <span x-text="suggestion.rate"></span> per <span x-text="suggestion.unit"></span></small>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Rate (Rs.)</label>
+                    <input 
+                        type="number" 
+                        x-model.number="currentItem.rate" 
+                        @input="calculateAmount()"
+                        step="0.01"
+                        placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input 
+                        type="number" 
+                        x-model.number="currentItem.quantity" 
+                        @input="calculateAmount()"
+                        step="0.01"
+                        placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label>Amount (Rs.)</label>
+                    <input 
+                        type="number" 
+                        x-model.number="currentItem.amount" 
+                        readonly
+                        style="background: #f8f9fa;">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" @click="addLineItem()" :disabled="!canAddItem()">
+                        Add Item
+                    </button>
+                </div>
+            </div>
+
+            <!-- Line Items Table -->
+            <table class="line-items-table" x-show="lineItems.length > 0">
+                <thead>
+                    <tr>
+                        <th style="width: 30px;">S/N</th>
+                        <th>Description</th>
+                        <th style="width: 60px;">Unit</th>
+                        <th style="width: 80px;">Rate (Rs.)</th>
+                        <th style="width: 80px;">Qty.</th>
+                        <th style="width: 100px;">Amount (Rs.)</th>
+                        <th style="width: 80px;" class="no-print">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="(item, index) in lineItems" :key="index">
+                        <tr>
+                            <td x-text="index + 1"></td>
+                            <td x-text="item.description"></td>
+                            <td x-text="item.unit"></td>
+                            <td class="text-right" x-text="parseFloat(item.rate).toFixed(2)"></td>
+                            <td class="text-right" x-text="parseFloat(item.quantity).toFixed(2)"></td>
+                            <td class="text-right" x-text="parseFloat(item.amount).toFixed(2)"></td>
+                            <td class="no-print">
+                                <button type="button" class="btn btn-danger" @click="removeLineItem(index)">
+                                    Remove
+                                </button>
+                            </td>
+                        </tr>
+                    </template>
+                    <tr class="grand-total">
+                        <td colspan="5" style="text-align: right; font-weight: bold;">Grand Total:</td>
+                        <td class="text-right" style="font-weight: bold;" x-text="'Rs. ' + grandTotal.toFixed(2)"></td>
+                        <td class="no-print"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        
-        <!-- CLI Terminal -->
-        <div class="cli-terminal" id="cliTerminal">
-            <div id="cliContent"></div>
+
+        <!-- Print Controls -->
+        <div class="controls no-print">
+            <button type="button" class="btn btn-success" @click="printInvoice()" :disabled="lineItems.length === 0">
+                Print Invoice
+            </button>
+        </div>
+
+        <!-- Invoice Template -->
+        <div class="container">
+            <!-- Header Section -->
+            <div class="header">
+                <div class="logo-section">
+                    <div class="logo">CEB</div>
+                </div>
+                <div class="title-section">
+                    <div class="main-title">Ceylon Electricity Board</div>
+                    <div class="subtitle">සිංහල විදුලි ශක්ති මණ්ඩලය</div>
+                </div>
+                <div class="office-info">
+                    <div class="office-title">Ceylon Electricity Board</div>
+                    <div>Area Office - Matara</div>
+                </div>
+            </div>
+
+            <!-- Information Section -->
+            <div class="info-section">
+                <div class="info-left">
+                    <div class="info-row">
+                        <div class="info-label">සන්ත්‍රාගතකරුගේ නම :</div>
+                        <div class="info-value" x-text="invoiceData.contractorName"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">ස්ථානය :</div>
+                        <div class="info-value" x-text="invoiceData.location"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">සේවයේ අංකය :</div>
+                        <div class="info-value" x-text="invoiceData.serviceNumber"></div>
+                    </div>
+                </div>
+                <div class="info-right">
+                    <div class="info-row">
+                        <div class="info-value" style="text-align: center; font-weight: bold;">ඉදිරිපත් කරන්නේ</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-value"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">වාර්තාව දිනය :</div>
+                        <div class="info-value" x-text="formatDate(invoiceData.reportDate)"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <div class="table-container">
+                <div class="table-header">
+                    <div class="col-sn">S/N</div>
+                    <div class="col-description">Description</div>
+                    <div class="col-unit">Unit</div>
+                    <div class="col-rate">Rate<br>(Rs.)</div>
+                    <div class="col-qty">Qty.</div>
+                    <div class="col-amount">Amount<br>(Rs.)</div>
+                    <div class="col-cert-qty">Certified<br>Qty.</div>
+                    <div class="col-cert-amount">Amount (Rs.)</div>
+                </div>
+
+                <!-- Dynamic Table Rows -->
+                <template x-for="(item, index) in printableRows" :key="index">
+                    <div class="table-row">
+                        <div class="col-sn" x-text="item.sn"></div>
+                        <div class="col-description" x-text="item.description"></div>
+                        <div class="col-unit" x-text="item.unit"></div>
+                        <div class="col-rate" x-text="item.rate"></div>
+                        <div class="col-qty" x-text="item.quantity"></div>
+                        <div class="col-amount" x-text="item.amount"></div>
+                        <div class="col-cert-qty" x-text="item.certifiedQty"></div>
+                        <div class="col-cert-amount" x-text="item.certifiedAmount"></div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="summary-section">
+                <div class="summary-text">
+                    රුපියල් : <span x-text="grandTotal.toFixed(2)"></span><br><br>
+                    ගම නියස මන්ත්‍රී ල.ම. ප්‍රමතිගලේ අනුකූල නුති සහ ඇ.ද. අනුකූල පරුක්‍ෂව හෝ පන්න ලබන පනත් පලම් පරිවර්තන.
+                </div>
+            </div>
+
+            <!-- Signature Section -->
+            <div class="signature-section">
+                <div class="signature-left">
+                    <div class="signature-row">
+                        <div class="signature-label">කෝන්ත්‍රාත්කරුගේ අත්සන</div>
+                        <div class="signature-line"></div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-label">නම.ප.නම. අත්සන</div>
+                        <div class="signature-line"></div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-label">දි.ය. (ප.වේ.ම. /ප.නම.ය.)</div>
+                        <div class="signature-line"></div>
+                    </div>
+                </div>
+                <div class="signature-right">
+                    <div class="signature-row">
+                        <div class="signature-label">වේ.ඉ.නියමුත්කරුගේ සහතික</div>
+                        <div class="signature-line"></div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-label">වේ.ප.(ම.වි./ප.ප්‍රමුක්‍ෂ.</div>
+                        <div class="signature-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span>Document No. : CE/MT/MHT/0/02</span>
+                <span>Date of Issue: 30.11.2017</span>
+                <span>Revised By: SEM</span>
+                <span>Approved :</span>
+            </div>
         </div>
     </div>
 
     <script>
-        // CLI terminal content
-        const cliCommands = [
-            { type: 'prompt', text: 'C:\\ELECTRON>' },
-            { type: 'command', text: 'system_init.exe', delay: 800 },
-            { type: 'output', text: 'Initializing system components...', delay: 500 },
-            { type: 'output', text: 'Loading kernel modules... [OK]', delay: 700 },
-            { type: 'output', text: 'Starting network services... [OK]', delay: 600 },
-            { type: 'output', text: 'Mounting file systems... [OK]', delay: 800 },
-            { type: 'prompt', text: 'C:\\ELECTRON>' },
-            { type: 'command', text: 'app_startup.bat', delay: 900 },
-            { type: 'output', text: 'Electron Framework v28.0.0', delay: 400 },
-            { type: 'output', text: 'Chrome/120.0.6099.56 Electron/28.0.0', delay: 500 },
-            { type: 'output', text: 'Loading application resources...', delay: 600 },
-            { type: 'output', text: 'Parsing configuration files... [OK]', delay: 700 },
-            { type: 'output', text: 'Initializing renderer process... [OK]', delay: 800 },
-            { type: 'output', text: 'Setting up IPC channels... [OK]', delay: 500 },
-            { type: 'prompt', text: 'C:\\ELECTRON>' },
-            { type: 'command', text: 'launch_main.exe', delay: 1000 },
-            { type: 'output', text: 'Starting main window...', delay: 600 },
-            { type: 'output', text: 'GPU acceleration enabled... [OK]', delay: 700 },
-            { type: 'output', text: 'DevTools ready... [OK]', delay: 500 },
-            { type: 'success', text: '>>> APPLICATION READY <<<', delay: 800 },
-            { type: 'success', text: 'System operational. All modules loaded.', delay: 400 },
-            { type: 'prompt', text: 'C:\\ELECTRON>' },
-            { type: 'cursor', text: '', delay: 0 }
-        ];
+        function invoiceApp() {
+            return {
+                invoiceData: {
+                    contractorName: '',
+                    location: '',
+                    serviceNumber: '',
+                    reportDate: new Date().toISOString().split('T')[0]
+                },
+                currentItem: {
+                    description: '',
+                    unit: 'Nos',
+                    rate: 0,
+                    quantity: 0,
+                    amount: 0
+                },
+                lineItems: [],
+                showSuggestions: false,
+                
+                // Predefined service descriptions with rates
+                serviceDescriptions: [
+                    { description: "Pole transport (...........) Km", rate: 1500.00, unit: "Nos" },
+                    { description: "Excavation of pole pits 6m/6.7m 15\" 30/33KV", rate: 2500.00, unit: "Nos" },
+                    { description: "Excavation of pole pits 10-8.3m/100-11.5m (Existing...)", rate: 3000.00, unit: "Nos" },
+                    { description: "Excavation of pole pits 590/250Kg", rate: 2200.00, unit: "Nos" },
+                    { description: "Excavation of stay pit - LT", rate: 800.00, unit: "Nos" },
+                    { description: "Erection of Pole/- 6m/8.5m W/R/Cpoles", rate: 4500.00, unit: "Nos" },
+                    { description: "Erection of Pole - 9m/8.5m W/R/C poles", rate: 5000.00, unit: "Nos" },
+                    { description: "Erection of Pole - 9m/250/300m RC poles", rate: 5500.00, unit: "Nos" },
+                    { description: "Erection of feaut - LT W/RC", rate: 1200.00, unit: "Nos" },
+                    { description: "Erection of stay LT - Normal", rate: 1800.00, unit: "Nos" },
+                    { description: "Concreting of pole pits 9/250Kg and 9/500", rate: 3500.00, unit: "Nos" },
+                    { description: "Removal of stay completely", rate: 800.00, unit: "Nos" },
+                    { description: "Removal of Hardware from Existing LV Poles 1ph/3ph", rate: 600.00, unit: "Nos" },
+                    { description: "Stringing of AAC/ABC Conductors 1ph/3ph", rate: 8500.00, unit: "Km" },
+                    { description: "Removal of AAC/ABC Conductors 1ph/3ph", rate: 2500.00, unit: "Km" },
+                    { description: "Re-Tensioning of AAC (Fly) Conductors", rate: 1500.00, unit: "Km" },
+                    { description: "Re-Tensioning of ABC - 1ph/3ph", rate: 1800.00, unit: "Km" },
+                    { description: "Removal of Pole/Struct - 8.3/9m - Wooden Re-usable", rate: 1200.00, unit: "Nos" },
+                    { description: "Removal of Pole/Struct - 8.3/9m - RC Re-usable", rate: 1500.00, unit: "Nos" },
+                    { description: "Removal of Pole/Struct - 6m/8.5m/9m - W/RC Un-usable", rate: 800.00, unit: "Nos" },
+                    { description: "Removal and reconnection of service wire 1ph/3ph", rate: 450.00, unit: "Nos" },
+                    { description: "Changing of service Wire with New wire (Length of service below 30m/Length of service above 30m)", rate: 650.00, unit: "Nos" },
+                    { description: "Rehabilitation of existing services (Length of service below 30m/Length of service above 30m)", rate: 750.00, unit: "Nos" }
+                ],
 
-        let currentLine = 0;
-        let currentChar = 0;
-        let isTyping = false;
+                get filteredSuggestions() {
+                    if (!this.currentItem.description) return [];
+                    return this.serviceDescriptions.filter(item => 
+                        item.description.toLowerCase().includes(this.currentItem.description.toLowerCase())
+                    );
+                },
 
-        function typeCliLine(line, text, className = '') {
-            return new Promise((resolve) => {
-                const cliContent = document.getElementById('cliContent');
-                const lineDiv = document.createElement('div');
-                lineDiv.className = `cli-line ${className}`;
-                cliContent.appendChild(lineDiv);
+                get grandTotal() {
+                    return this.lineItems.reduce((total, item) => total + parseFloat(item.amount || 0), 0);
+                },
 
-                if (text === '') {
-                    const cursor = document.createElement('span');
-                    cursor.className = 'cli-cursor';
-                    lineDiv.appendChild(cursor);
-                    resolve();
-                    return;
-                }
-
-                let i = 0;
-                function typeChar() {
-                    if (i < text.length) {
-                        lineDiv.textContent += text.charAt(i);
-                        i++;
-                        setTimeout(typeChar, Math.random() * 50 + 30);
-                    } else {
-                        setTimeout(resolve, 200);
+                get printableRows() {
+                    const rows = [];
+                    const maxRows = 25;
+                    
+                    // Add actual line items
+                    this.lineItems.forEach((item, index) => {
+                        rows.push({
+                            sn: index + 1,
+                            description: item.description,
+                            unit: item.unit,
+                            rate: parseFloat(item.rate).toFixed(2),
+                            quantity: parseFloat(item.quantity).toFixed(2),
+                            amount: parseFloat(item.amount).toFixed(2),
+                            certifiedQty: parseFloat(item.quantity).toFixed(2),
+                            certifiedAmount: parseFloat(item.amount).toFixed(2)
+                        });
+                    });
+                    
+                    // Fill remaining rows with empty data
+                    for (let i = this.lineItems.length; i < maxRows; i++) {
+                        rows.push({
+                            sn: i + 1,
+                            description: '',
+                            unit: '',
+                            rate: '',
+                            quantity: '',
+                            amount: '',
+                            certifiedQty: '',
+                            certifiedAmount: ''
+                        });
                     }
-                }
-                typeChar();
-            });
-        }
+                    
+                    return rows;
+                },
 
-        async function runCliSequence() {
-            const cliContent = document.getElementById('cliContent');
-            cliContent.innerHTML = '';
+                selectSuggestion(suggestion) {
+                    this.currentItem.description = suggestion.description;
+                    this.currentItem.rate = suggestion.rate;
+                    this.currentItem.unit = suggestion.unit;
+                    this.showSuggestions = false;
+                    this.calculateAmount();
+                },
 
-            for (let i = 0; i < cliCommands.length; i++) {
-                const cmd = cliCommands[i];
-                
-                await new Promise(resolve => setTimeout(resolve, cmd.delay));
-                
-                let className = '';
-                let displayText = cmd.text;
-                
-                switch (cmd.type) {
-                    case 'prompt':
-                        className = 'cli-prompt';
-                        break;
-                    case 'command':
-                        className = 'cli-command';
-                        displayText = cmd.text;
-                        break;
-                    case 'output':
-                        className = 'cli-output';
-                        break;
-                    case 'success':
-                        className = 'cli-success';
-                        break;
-                    case 'cursor':
-                        className = 'cli-prompt';
-                        break;
+                calculateAmount() {
+                    this.currentItem.amount = (this.currentItem.rate || 0) * (this.currentItem.quantity || 0);
+                },
+
+                canAddItem() {
+                    return this.currentItem.description && 
+                           this.currentItem.rate > 0 && 
+                           this.currentItem.quantity > 0;
+                },
+
+                addLineItem() {
+                    if (this.canAddItem()) {
+                        this.lineItems.push({
+                            description: this.currentItem.description,
+                            unit: this.currentItem.unit,
+                            rate: this.currentItem.rate,
+                            quantity: this.currentItem.quantity,
+                            amount: this.currentItem.amount
+                        });
+                        
+                        // Reset form
+                        this.currentItem = {
+                            description: '',
+                            unit: 'Nos',
+                            rate: 0,
+                            quantity: 0,
+                            amount: 0
+                        };
+                    }
+                },
+
+                removeLineItem(index) {
+                    this.lineItems.splice(index, 1);
+                },
+
+                formatDate(dateString) {
+                    if (!dateString) return '';
+                    const date = new Date(dateString);
+                    return date.toLocaleDateString('en-GB');
+                },
+
+                printInvoice() {
+                    window.print();
                 }
-                
-                await typeCliLine(i, displayText, className);
             }
         }
-
-        // Main loading sequence
-        setTimeout(() => {
-            const loadingAnimation = document.getElementById('loadingAnimation');
-            const connectedState = document.getElementById('connectedState');
-            
-            // Fade out loading animation
-            loadingAnimation.classList.add('fade-out');
-            
-            // Show connected state after fade out
-            setTimeout(() => {
-                loadingAnimation.style.display = 'none';
-                connectedState.classList.add('show');
-                
-                // After 15 seconds, show CLI terminal
-                setTimeout(() => {
-                    const cliTerminal = document.getElementById('cliTerminal');
-                    cliTerminal.classList.add('show');
-                    
-                    // Start CLI sequence after terminal is visible
-                    setTimeout(() => {
-                        runCliSequence();
-                    }, 800);
-                    
-                }, 15000); // 15 seconds after connected state
-                
-            }, 500);
-            
-        }, 4000);
-        
-        // Optional: Reset animation (useful for testing)
-        function resetAnimation() {
-            const loadingAnimation = document.getElementById('loadingAnimation');
-            const connectedState = document.getElementById('connectedState');
-            const cliTerminal = document.getElementById('cliTerminal');
-            
-            loadingAnimation.style.display = 'block';
-            loadingAnimation.classList.remove('fade-out');
-            connectedState.classList.remove('show');
-            cliTerminal.classList.remove('show');
-            
-            // Restart the cycle
-            setTimeout(() => {
-                loadingAnimation.classList.add('fade-out');
-                setTimeout(() => {
-                    loadingAnimation.style.display = 'none';
-                    connectedState.classList.add('show');
-                    
-                    setTimeout(() => {
-                        cliTerminal.classList.add('show');
-                        setTimeout(() => {
-                            runCliSequence();
-                        }, 800);
-                    }, 15000);
-                    
-                }, 500);
-            }, 4000);
-        }
-        
-        // Double-click to reset (for demo purposes)
-        document.addEventListener('dblclick', resetAnimation);
     </script>
 </body>
 </html>
