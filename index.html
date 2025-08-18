@@ -3,7 +3,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEB-V1</title>
+    <title>CEB-V2</title>
 
     <style>
         @media print {
@@ -739,9 +739,9 @@
                             <td x-text="item.ino"></td>
                             <td x-text="item.description"></td>
                             <td x-text="item.unit"></td>
-                            <td class="text-right" x-text="'Rs. ' + parseFloat(item.rate).toFixed(2)"></td>
+                            <td class="text-right" x-text=" parseFloat(item.rate).toFixed(2)"></td>
                             <td class="text-right" x-text="parseFloat(item.quantity).toFixed(2)"></td>
-                            <td class="text-right" x-text="'Rs. ' + parseFloat(item.amount).toFixed(2)"></td>
+                            <td class="text-right" x-text="parseFloat(item.amount).toFixed(2)"></td>
                             <td class="no-print">
                                 <button type="button" class="btn btn-danger" @click="removeLineItem(index)" style="padding: 4px 8px; font-size: 10px;">Delete</button>
                             </td>
@@ -749,7 +749,7 @@
                     </template>
                     <tr class="grand-total">
                         <td colspan="5" style="text-align: right; font-weight: bold;">Grand Total:</td>
-                        <td class="text-right" style="font-weight: bold;" x-text="&#39;Rs. &#39; + grandTotal.toFixed(2)">Rs. 0.00</td>
+                        <td class="text-right" style="font-weight: bold;" x-text="grandTotal.toFixed(2)">Rs. 0.00</td>
                         <td class="no-print"></td>
                     </tr>
                 </tbody>
