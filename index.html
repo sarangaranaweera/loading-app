@@ -900,18 +900,7 @@
 <!-- Alpine.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
 <script>
-let jsondata = [];
 
-function loadJson(){
-    return { async init() {
-            // Load JSON data from file
-            const response = await fetch('./item.json');
-            const data = await response.json();
-            this.jsondata = data;
-        }
-    }
-
-}
 
 function invoiceApp(){
     return {
