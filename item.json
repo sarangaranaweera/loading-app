@@ -1,0 +1,8 @@
+[
+  { "ino": "RA 1", "description": "Pole transport (...........) Km", "rate": 1500, "unit": "Nos" },
+  { "ino": "RA 2", "description": "Excavation of pole pits 6m/6.7m 15\" 30/33KV", "rate": 2500, "unit": "Nos" },
+  { "ino": "RA 3", "description": "Excavation of pole pits 10-8.3m/100-11.5m (Existing...)", "rate": 3000, "unit": "Nos" },
+  { "ino": "RA 4", "description": "Excavation of pole pits 590/250Kg", "rate": 2200, "unit": "Nos" },
+  { "ino": "RA 5", "description": "Excavation of stay pit - LT", "rate": 800, "unit": "Nos" },
+  { "ino": "RA 6", "description": "Erection of Pole/- 6m/8.5m W/R/Cpoles", "rate": 4500, "unit": "Nos" }
+]

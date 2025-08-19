@@ -900,6 +900,19 @@
 <!-- Alpine.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
 <script>
+let jsondata = [];
+
+function loadJson(){
+    return { async init() {
+            // Load JSON data from file
+            const response = await fetch('./item.json');
+            const data = await response.json();
+            this.jsondata = data;
+        }
+    }
+
+}
+
 function invoiceApp(){
     return {
         invoiceData: {
@@ -920,31 +933,7 @@ function invoiceApp(){
         lineItems: [],
         showSuggestions: false,
         showSaveNotification: false,
-        serviceDescriptions: [
-            {ino: "RA 1", description: "Pole transport (...........) Km", rate: 1500, unit: "Nos"},
-            {ino: "RA 2", description: "Excavation of pole pits 6m/6.7m 15\" 30/33KV", rate: 2500, unit: "Nos"},
-            {ino: "RA 3", description: "Excavation of pole pits 10-8.3m/100-11.5m (Existing...)", rate: 3000, unit: "Nos"},
-            {ino: "RA 4", description: "Excavation of pole pits 590/250Kg", rate: 2200, unit: "Nos"},
-            {ino: "RA 5", description: "Excavation of stay pit - LT", rate: 800, unit: "Nos"},
-            {ino: "RA 6", description: "Erection of Pole/- 6m/8.5m W/R/Cpoles", rate: 4500, unit: "Nos"},
-            {ino: "RA 7", description: "Erection of Pole - 9m/8.5m W/R/C poles", rate: 5000, unit: "Nos"},
-            {ino: "RA 8", description: "Erection of Pole - 9m/250/300m RC poles", rate: 5500, unit: "Nos"},
-            {ino: "RA 9", description: "Erection of feaut - LT W/RC", rate: 1200, unit: "Nos"},
-            {ino: "RA 10", description: "Erection of stay LT - Normal", rate: 1800, unit: "Nos"},
-            {ino: "RA 11", description: "Concreting of pole pits 9/250Kg and 9/500", rate: 3500, unit: "Nos"},
-            {ino: "RA 12", description: "Removal of stay completely", rate: 800, unit: "Nos"},
-            {ino: "RA 13", description: "Removal of Hardware from Existing LV Poles 1ph/3ph", rate: 600, unit: "Nos"},
-            {ino: "RA 14", description: "Stringing of AAC/ABC Conductors 1ph/3ph", rate: 8500, unit: "Km"},
-            {ino: "RA 15", description: "Removal of AAC/ABC Conductors 1ph/3ph", rate: 2500, unit: "Km"},
-            {ino: "RA 16", description: "Re-Tensioning of AAC (Fly) Conductors", rate: 1500, unit: "Km"},
-            {ino: "RA 17", description: "Re-Tensioning of ABC - 1ph/3ph", rate: 1800, unit: "Km"},
-            {ino: "RA 18", description: "Removal of Pole/Struct - 8.3/9m - Wooden Re-usable", rate: 1200, unit: "Nos"},
-            {ino: "RA 19", description: "Removal of Pole/Struct - 8.3/9m - RC Re-usable", rate: 1500, unit: "Nos"},
-            {ino: "RA 20", description: "Removal of Pole/Struct - 6m/8.5m/9m - W/RC Un-usable", rate: 800, unit: "Nos"},
-            {ino: "RA 21", description: "Removal and reconnection of service wire 1ph/3ph", rate: 450, unit: "Nos"},
-            {ino: "RA 22", description: "Changing of service Wire with New wire (Length of service below 30m/Length of service above 30m)", rate: 650, unit: "Nos"},
-            {ino: "RA 23", description: "Rehabilitation of existing services (Length of service below 30m/Length of service above 30m)", rate: 750, unit: "Nos"}
-        ],
+        serviceDescriptions: this.jsondata,
 
         // localStorage keys
         storageKeys: {
