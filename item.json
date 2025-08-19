@@ -1,8 +1,1502 @@
 [
-  { "ino": "RA 1", "description": "Pole transport (...........) Km", "rate": 1500, "unit": "Nos" },
-  { "ino": "RA 2", "description": "Excavation of pole pits 6m/6.7m 15\" 30/33KV", "rate": 2500, "unit": "Nos" },
-  { "ino": "RA 3", "description": "Excavation of pole pits 10-8.3m/100-11.5m (Existing...)", "rate": 3000, "unit": "Nos" },
-  { "ino": "RA 4", "description": "Excavation of pole pits 590/250Kg", "rate": 2200, "unit": "Nos" },
-  { "ino": "RA 5", "description": "Excavation of stay pit - LT", "rate": 800, "unit": "Nos" },
-  { "ino": "RA 6", "description": "Erection of Pole/- 6m/8.5m W/R/Cpoles", "rate": 4500, "unit": "Nos" }
+  {
+    "ITEM_NO": "0",
+    "DESCRIPTION": "0",
+    "UNIT": "0",
+    "RATE_PER_UNIT": "1.00"
+  },
+  {
+    "ITEM_NO": "01",
+    "DESCRIPTION": "Transportation of poles",
+    "UNIT": "Km",
+    "RATE_PER_UNIT": "1970.00"
+  },
+  {
+    "ITEM_NO": "01.1",
+    "DESCRIPTION": "8.3m /9m RC pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "83.00"
+  },
+  {
+    "ITEM_NO": "01.2",
+    "DESCRIPTION": "6m RC pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "43.00"
+  },
+  {
+    "ITEM_NO": "01.3",
+    "DESCRIPTION": "Wooden pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "45.00"
+  },
+  {
+    "ITEM_NO": "33",
+    "DESCRIPTION": "dfdsfdf",
+    "UNIT": "no",
+    "RATE_PER_UNIT": "6.00"
+  },
+  {
+    "ITEM_NO": "777",
+    "DESCRIPTION": "sdfd dfd fds df ",
+    "UNIT": "rt",
+    "RATE_PER_UNIT": "700.00"
+  },
+  {
+    "ITEM_NO": "A 1",
+    "DESCRIPTION": "Excavation of pole pits ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 1.1",
+    "DESCRIPTION": "For LT poles 8.3m / 9.0m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "744.00"
+  },
+  {
+    "ITEM_NO": "A 1.2",
+    "DESCRIPTION": "2.5'' x2'' x5 1/2(9/350 poles)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "837.00"
+  },
+  {
+    "ITEM_NO": "A 1.3",
+    "DESCRIPTION": "2.5'' x2'' x5 1/2'' (8.3m/9.0m 500kg poles)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "837.00"
+  },
+  {
+    "ITEM_NO": "A 10",
+    "DESCRIPTION": "Erection of Stays",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 10.1",
+    "DESCRIPTION": "Normal stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "744.00"
+  },
+  {
+    "ITEM_NO": "A 10.2",
+    "DESCRIPTION": "Fly stay - considered as 1.5 times normal stay ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1116.00"
+  },
+  {
+    "ITEM_NO": "A 11",
+    "DESCRIPTION": "Dressing of LV pole",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 11.1",
+    "DESCRIPTION": "1 phase pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "167.00"
+  },
+  {
+    "ITEM_NO": "A 11.2",
+    "DESCRIPTION": "3 phase pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "223.00"
+  },
+  {
+    "ITEM_NO": "A 11.3",
+    "DESCRIPTION": "1 Ph.to 3 Ph.Conversion",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "167.00"
+  },
+  {
+    "ITEM_NO": "A 11.4",
+    "DESCRIPTION": "2 ph to.3 ph Conversion ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "112.00"
+  },
+  {
+    "ITEM_NO": "A 12",
+    "DESCRIPTION": "Stringing of AAC conductors",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 12.1",
+    "DESCRIPTION": "AAC 7/3.4mm per one conductor per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "11160.00"
+  },
+  {
+    "ITEM_NO": "A 12.2",
+    "DESCRIPTION": "AAC 7/4.39mm (Wasp) per one conductor per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "13020.00"
+  },
+  {
+    "ITEM_NO": "A 12.3",
+    "DESCRIPTION": "ABC conductors (Inclusive of dressing of poles)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "16.70"
+  },
+  {
+    "ITEM_NO": "A 13",
+    "DESCRIPTION": "Removal & reconnecting of service wire",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 13.1",
+    "DESCRIPTION": "Single phase service",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "74.00"
+  },
+  {
+    "ITEM_NO": "A 13.2",
+    "DESCRIPTION": "Three phase service",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "130.00"
+  },
+  {
+    "ITEM_NO": "A 14",
+    "DESCRIPTION": "Earthing",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 14.1",
+    "DESCRIPTION": "Stringing of No 8 GS wire",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "8928.00"
+  },
+  {
+    "ITEM_NO": "A 14.2",
+    "DESCRIPTION": "Erection of earth pipes down run & making connection",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "335.00"
+  },
+  {
+    "ITEM_NO": "A 15",
+    "DESCRIPTION": "Extra payments",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 15.1",
+    "DESCRIPTION": "For jobs with line length less than 500m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2225.00"
+  },
+  {
+    "ITEM_NO": "A 15.2 ",
+    "DESCRIPTION": "For jobs with line length more than 500m but less than ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1965.00"
+  },
+  {
+    "ITEM_NO": "A 15.3",
+    "DESCRIPTION": "Cost of minor way leaves cleaning per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1900.00"
+  },
+  {
+    "ITEM_NO": "A 16",
+    "DESCRIPTION": "Removal and reconnecting of service wire ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 16.1 ",
+    "DESCRIPTION": "Single phase service",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "84.00"
+  },
+  {
+    "ITEM_NO": "A 16.2",
+    "DESCRIPTION": "Three phase service",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "146.00"
+  },
+  {
+    "ITEM_NO": "A 17",
+    "DESCRIPTION": "Changing of service wire with new wire",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 17.1",
+    "DESCRIPTION": "Length of service below 30m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "752.00"
+  },
+  {
+    "ITEM_NO": "A 17.2",
+    "DESCRIPTION": "Length of service above 30m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "940.00"
+  },
+  {
+    "ITEM_NO": "A 18",
+    "DESCRIPTION": "Rehabilitation of existing service",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 18.1 ",
+    "DESCRIPTION": "Length of service below 30m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "439.00"
+  },
+  {
+    "ITEM_NO": "A 18.2",
+    "DESCRIPTION": "Length of service above 30m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "711.00"
+  },
+  {
+    "ITEM_NO": "A 19",
+    "DESCRIPTION": "Replacing of poles",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 19.1 ",
+    "DESCRIPTION": "Replacing of 6m/6.7m wd pole or Con pole with same size wd pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1881.00"
+  },
+  {
+    "ITEM_NO": "A 19.2",
+    "DESCRIPTION": "Replacing of 6m/6.7m wd pole or con pole with same size con pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3000.00"
+  },
+  {
+    "ITEM_NO": "A 19.3",
+    "DESCRIPTION": "Replacing of 8.3m/9m wd pole or con pole with same size wd pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2926.00"
+  },
+  {
+    "ITEM_NO": "A 19.4",
+    "DESCRIPTION": "Replacing of 8.3m/9m wd pole or con pole with same size con pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3135.00"
+  },
+  {
+    "ITEM_NO": "A 2 ",
+    "DESCRIPTION": "Excavation of pits for struts",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 2.1",
+    "DESCRIPTION": "2.5'' x2'' x2'' (For LT poles)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "372.00"
+  },
+  {
+    "ITEM_NO": "A 20",
+    "DESCRIPTION": "Minor way leaves",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "950.00"
+  },
+  {
+    "ITEM_NO": "A 3",
+    "DESCRIPTION": "Excavation of pits for stays",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 3.1 ",
+    "DESCRIPTION": "2.5' x 2'  x 5'  (For LT stay)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "744.00"
+  },
+  {
+    "ITEM_NO": "A 4",
+    "DESCRIPTION": "Dragging of poles (First 100m distance shall not be paid)",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 4.1",
+    "DESCRIPTION": "8.3/9m Wood pole - Flat ground",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "37.00"
+  },
+  {
+    "ITEM_NO": "A 4.2",
+    "DESCRIPTION": "8.3/9m Wood pole - Up slope (>15 inclination)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "56.00"
+  },
+  {
+    "ITEM_NO": "A 4.3",
+    "DESCRIPTION": "8.3/9m RC pole - Flat ground",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "74.00"
+  },
+  {
+    "ITEM_NO": "A 4.4",
+    "DESCRIPTION": "8.3/9m RC pole - Up slope (>15 inclination)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "149.00"
+  },
+  {
+    "ITEM_NO": "A 5",
+    "DESCRIPTION": "Erection of poles",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 5.1",
+    "DESCRIPTION": "9m/8.3m Wood pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "670.00"
+  },
+  {
+    "ITEM_NO": "A 5.2",
+    "DESCRIPTION": "9m/8.3m Concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1507.00"
+  },
+  {
+    "ITEM_NO": "A 5.3",
+    "DESCRIPTION": "9/350m Concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1674.00"
+  },
+  {
+    "ITEM_NO": "A 5.4",
+    "DESCRIPTION": "9/500m Concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1674.00"
+  },
+  {
+    "ITEM_NO": "A 6",
+    "DESCRIPTION": "Removal of poles/struts ",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 6.1",
+    "DESCRIPTION": "8.3/9m 500kg P.S",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1488.00"
+  },
+  {
+    "ITEM_NO": "A 7",
+    "DESCRIPTION": "Concreting of pole pits",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 7.1",
+    "DESCRIPTION": "9m/8.3m Concrete pole (loose soil condition only",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 7.1 A",
+    "DESCRIPTION": "Charge for materials",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "5458.00"
+  },
+  {
+    "ITEM_NO": "A 7.1 B",
+    "DESCRIPTION": "Labour charge for placing concrete ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "744.00"
+  },
+  {
+    "ITEM_NO": "A 7.2",
+    "DESCRIPTION": "Concreting of pole pits 9/350kg and 9/500",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 7.2 A",
+    "DESCRIPTION": "Charge for materials ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "5933.00"
+  },
+  {
+    "ITEM_NO": "A 7.2 B",
+    "DESCRIPTION": "Labour charge for placing concrete ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "837.00"
+  },
+  {
+    "ITEM_NO": "A 8",
+    "DESCRIPTION": "Re- Tensioning of conductor of existing lines ",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "A 8.1",
+    "DESCRIPTION": "7/3.4mm, 7/4.39mm All aluminium conductors",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "8370.00"
+  },
+  {
+    "ITEM_NO": "A 8.2",
+    "DESCRIPTION": "ABC",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "11904.00"
+  },
+  {
+    "ITEM_NO": "A 9.1",
+    "DESCRIPTION": "9m/8.3m Wood pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "744.00"
+  },
+  {
+    "ITEM_NO": "A 9.2",
+    "DESCRIPTION": "9m/8.3m Concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1674.00"
+  },
+  {
+    "ITEM_NO": "A9",
+    "DESCRIPTION": "Erection of Struts",
+    "UNIT": "",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA  21",
+    "DESCRIPTION": "Replacing of poles ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 1",
+    "DESCRIPTION": "Excavation of pole pits",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 1.1",
+    "DESCRIPTION": "(For service poles) 6m/6.7m -2.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1800.00"
+  },
+  {
+    "ITEM_NO": "RA 1.2",
+    "DESCRIPTION": "(For LT poles 8.3m/9m) 4+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3230.00"
+  },
+  {
+    "ITEM_NO": "RA 1.3",
+    "DESCRIPTION": "(9/350 poles) 4.5+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3590.00"
+  },
+  {
+    "ITEM_NO": "RA 1.4",
+    "DESCRIPTION": "(9/500 poles) 4.5+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1800.00"
+  },
+  {
+    "ITEM_NO": "RA 10",
+    "DESCRIPTION": "Dressing of LV pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 10.1",
+    "DESCRIPTION": "6.0m/6.7m Wooden pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1720.00"
+  },
+  {
+    "ITEM_NO": "RA 10.2",
+    "DESCRIPTION": "6.0m/6.7m concrete Pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2300.00"
+  },
+  {
+    "ITEM_NO": "RA 10.3",
+    "DESCRIPTION": "9m/8.3m Wooden Pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3230.00"
+  },
+  {
+    "ITEM_NO": "RA 10.4",
+    "DESCRIPTION": "9m/8.3m concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "7900.00"
+  },
+  {
+    "ITEM_NO": "RA 10.5",
+    "DESCRIPTION": "Fixing of Strut  Brackets for existing Struts",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "720.00"
+  },
+  {
+    "ITEM_NO": "RA 11",
+    "DESCRIPTION": "Removal of hardware from Existing LV poles",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 11.1 ",
+    "DESCRIPTION": "Normal Stay (LV Stay)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3230.00"
+  },
+  {
+    "ITEM_NO": "RA 11.2",
+    "DESCRIPTION": "times normal stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "4670.00"
+  },
+  {
+    "ITEM_NO": "RA 11.3",
+    "DESCRIPTION": "Repairing of LV stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1080.00"
+  },
+  {
+    "ITEM_NO": "RA 11.4",
+    "DESCRIPTION": "Retightening of LV stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "360.00"
+  },
+  {
+    "ITEM_NO": "RA 11.5",
+    "DESCRIPTION": "Relocating of LV stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2870.00"
+  },
+  {
+    "ITEM_NO": "RA 12",
+    "DESCRIPTION": "Stringing of AAC conductors",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 12.1",
+    "DESCRIPTION": "1 phase pole (average rate for shackle & intermediate poles)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "650.00"
+  },
+  {
+    "ITEM_NO": "RA 12.2",
+    "DESCRIPTION": "3 phase  pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "860.00"
+  },
+  {
+    "ITEM_NO": "RA 12.3",
+    "DESCRIPTION": "1 ph -3ph conversion ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "650.00"
+  },
+  {
+    "ITEM_NO": "RA 12.4",
+    "DESCRIPTION": "2 ph -3ph conversion  (-do-) allowed half rate of 1ph -3ph",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "430.00"
+  },
+  {
+    "ITEM_NO": "RA 12.5",
+    "DESCRIPTION": "1 ph tapping pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "720.00"
+  },
+  {
+    "ITEM_NO": "RA 12.6",
+    "DESCRIPTION": "2 ph tapping pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "860.00"
+  },
+  {
+    "ITEM_NO": "RA 12.7",
+    "DESCRIPTION": "3 ph tapping pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1080.00"
+  },
+  {
+    "ITEM_NO": "RA 12.8",
+    "DESCRIPTION": "fixing of LV brackets ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1440.00"
+  },
+  {
+    "ITEM_NO": "RA 12.9",
+    "DESCRIPTION": "fixing of bunddle conductor accessories ,suspension/large angle/dead end assembly",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "430.00"
+  },
+  {
+    "ITEM_NO": "RA 13",
+    "DESCRIPTION": "Removal of conductors ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 13.1",
+    "DESCRIPTION": "single phase",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "860.00"
+  },
+  {
+    "ITEM_NO": "RA 13.2",
+    "DESCRIPTION": "Three phase",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1290.00"
+  },
+  {
+    "ITEM_NO": "RA 13.3 ",
+    "DESCRIPTION": "Removal of street lamp(complete set)",
+    "UNIT": "NO",
+    "RATE_PER_UNIT": "860.00"
+  },
+  {
+    "ITEM_NO": "RA 13.4",
+    "DESCRIPTION": "Installation of street lamp (complete set)",
+    "UNIT": "NO",
+    "RATE_PER_UNIT": "930.00"
+  },
+  {
+    "ITEM_NO": "RA 14",
+    "DESCRIPTION": "Re-Tensioning of Conductors on Existing lines ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 14.1",
+    "DESCRIPTION": "AAC 7/3.4mm (fly) per one conductor per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "43080.00"
+  },
+  {
+    "ITEM_NO": "RA 14.2",
+    "DESCRIPTION": "AAC 7/4mm (wasp) per one conductor per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "50260.00"
+  },
+  {
+    "ITEM_NO": "RA 14.3",
+    "DESCRIPTION": "ABC 50X1+54.6X1 or 70x1+54.6x1 conductors ( inclusive of dressing of pole) per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "86160.00"
+  },
+  {
+    "ITEM_NO": "RA 14.4",
+    "DESCRIPTION": "ABC 70X3+54 6X1+16X1 conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "143600.00"
+  },
+  {
+    "ITEM_NO": "RA 14.5",
+    "DESCRIPTION": "ABC 95X3+70X1+16X1 Conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "157960.00"
+  },
+  {
+    "ITEM_NO": "RA 15",
+    "DESCRIPTION": "Concreting of pole pits",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 15.1",
+    "DESCRIPTION": "7/3.79mm,7/3.4mm All Aluminium (per conductor)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "19390.00"
+  },
+  {
+    "ITEM_NO": "RA 15.1 a",
+    "DESCRIPTION": "Charge for materials",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "5458.00"
+  },
+  {
+    "ITEM_NO": "RA 15.1 b",
+    "DESCRIPTION": "7/3.79mm,7/3.4mm All Aluminium (per conductor)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "19390.00"
+  },
+  {
+    "ITEM_NO": "RA 15.2",
+    "DESCRIPTION": "ABC 70X3+54 6X1+16X1 conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "19390.00"
+  },
+  {
+    "ITEM_NO": "RA 15.2 a",
+    "DESCRIPTION": "Charge for materials ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "5933.00"
+  },
+  {
+    "ITEM_NO": "RA 15.2 b",
+    "DESCRIPTION": "Labour charge for  placing concrete 4.5+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1045.00"
+  },
+  {
+    "ITEM_NO": "RA 16",
+    "DESCRIPTION": "Re - tensioning of conductors on existing lines ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 16.1",
+    "DESCRIPTION": "7/34mm7/4.39mm All Aluminium conductors (per conductor)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "32310.00"
+  },
+  {
+    "ITEM_NO": "RA 16.2",
+    "DESCRIPTION": "ABC 50X1+54.6X1 or 70x1+54.6x1 conductors ( inclusive of dressing of pole) per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "27280.00"
+  },
+  {
+    "ITEM_NO": "RA 16.3 ",
+    "DESCRIPTION": "ABC 70X3+54 6X1+16X1 conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "45950.00"
+  },
+  {
+    "ITEM_NO": "RA 16.4",
+    "DESCRIPTION": "ABC 95X3+70X1+16X1 Conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "47390.00"
+  },
+  {
+    "ITEM_NO": "RA 17",
+    "DESCRIPTION": "Conctreting  of pole pits",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 17.1",
+    "DESCRIPTION": "Length of service below 30m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "752.00"
+  },
+  {
+    "ITEM_NO": "RA 17.1.1",
+    "DESCRIPTION": "8.3m/9m RC pole  charge for materials ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "9050.00"
+  },
+  {
+    "ITEM_NO": "RA 17.1.2",
+    "DESCRIPTION": "8.3m/9m RC pole labour charge for placing concrete",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3590.00"
+  },
+  {
+    "ITEM_NO": "RA 17.2",
+    "DESCRIPTION": "Length of service above 30m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "940.00"
+  },
+  {
+    "ITEM_NO": "RA 18",
+    "DESCRIPTION": "Removal and reconnecting of service wire",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 18.1",
+    "DESCRIPTION": "single phase service ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "290.00"
+  },
+  {
+    "ITEM_NO": "RA 18.2",
+    "DESCRIPTION": "three phase service",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "500.00"
+  },
+  {
+    "ITEM_NO": "RA 18.3",
+    "DESCRIPTION": "single phase service",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "570.00"
+  },
+  {
+    "ITEM_NO": "RA 18.4",
+    "DESCRIPTION": "Three phase service",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1010.00"
+  },
+  {
+    "ITEM_NO": "RA 18.5",
+    "DESCRIPTION": "spur line ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1220.00"
+  },
+  {
+    "ITEM_NO": "RA 19",
+    "DESCRIPTION": "Changing of service wire with new wire (per service)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 19.1",
+    "DESCRIPTION": "a.Single phase - first span  ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2580.00"
+  },
+  {
+    "ITEM_NO": "RA 19.2",
+    "DESCRIPTION": "Replacing of 6m/6.7m wood pole or Concrete pole with same size concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2090.00"
+  },
+  {
+    "ITEM_NO": "RA 19.2.a",
+    "DESCRIPTION": "Three phase first span ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3950.00"
+  },
+  {
+    "ITEM_NO": "RA 19.3",
+    "DESCRIPTION": "Replacing of 8.3m/9m wood pole or Concrete pole with same size wooden pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2926.00"
+  },
+  {
+    "ITEM_NO": "RA 19.4",
+    "DESCRIPTION": "Replacing of 8.3m/9m wood pole or Concrete pole with same size concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3135.00"
+  },
+  {
+    "ITEM_NO": "RA 2",
+    "DESCRIPTION": "Excavation of pits for struts",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 2.1",
+    "DESCRIPTION": "(For LT & service poles) 2",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1440.00"
+  },
+  {
+    "ITEM_NO": "RA 20 ",
+    "DESCRIPTION": "Rehabilitation of existing services ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 20.1",
+    "DESCRIPTION": " Length of service bellow 30m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1510.00"
+  },
+  {
+    "ITEM_NO": "RA 20.2",
+    "DESCRIPTION": "Length of service above 30m",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2440.00"
+  },
+  {
+    "ITEM_NO": "RA 20.3",
+    "DESCRIPTION": "Removing from tapping point,crimp and refix the ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "720.00"
+  },
+  {
+    "ITEM_NO": "RA 21.1",
+    "DESCRIPTION": "Replacing of 6.0m/6.7m wood pole or concrete pole with same size wooden pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "6460.00"
+  },
+  {
+    "ITEM_NO": "RA 21.2",
+    "DESCRIPTION": "Replacing of 6.0m/6.7m wood pole or concrete pole with same size concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "7180.00"
+  },
+  {
+    "ITEM_NO": "RA 21.3",
+    "DESCRIPTION": "Replacing f 8.3m/9.0m wood pole or concrete pole with same size wooden pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "10050.00"
+  },
+  {
+    "ITEM_NO": "RA 21.4",
+    "DESCRIPTION": "Replacing of 8.3m/9.0m wood pole or concrete pole with same size concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "10770.00"
+  },
+  {
+    "ITEM_NO": "RA 22.1",
+    "DESCRIPTION": "shifting meter to another location using same service bracket - single phase",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2150.00"
+  },
+  {
+    "ITEM_NO": "RA 22.2",
+    "DESCRIPTION": "shifting meter to another location using same service bracket -  three phase",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2870.00"
+  },
+  {
+    "ITEM_NO": "RA 22.3",
+    "DESCRIPTION": "shifting meter to (seperate) location - single phase",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2870.00"
+  },
+  {
+    "ITEM_NO": "RA 22.4",
+    "DESCRIPTION": "shifting meter to (seperate) location - three phase",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "4310.00"
+  },
+  {
+    "ITEM_NO": "RA 23.1",
+    "DESCRIPTION": "minor wayleaves ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3880.00"
+  },
+  {
+    "ITEM_NO": "RA 3",
+    "DESCRIPTION": "Excavation of pits for stays ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "Ra 3.1",
+    "DESCRIPTION": "(For LT Stay) 4+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3230.00"
+  },
+  {
+    "ITEM_NO": "RA 4",
+    "DESCRIPTION": "Dragging of poles",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 4.1",
+    "DESCRIPTION": "8.3/9m wood pole- Flat ground",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "140.00"
+  },
+  {
+    "ITEM_NO": "RA 4.2",
+    "DESCRIPTION": "8.3/9m wood pole - Up slope",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "220.00"
+  },
+  {
+    "ITEM_NO": "RA 4.3",
+    "DESCRIPTION": "8.3/9m RC pole - Flat ground",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "430.00"
+  },
+  {
+    "ITEM_NO": "RA 4.4",
+    "DESCRIPTION": "8.3/9m RC pole - Up slope",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "790.00"
+  },
+  {
+    "ITEM_NO": "RA 5",
+    "DESCRIPTION": "Erection of poles",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 5.1",
+    "DESCRIPTION": "Erection of poles",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 5.1.1",
+    "DESCRIPTION": "6m Wooden poles",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1650.00"
+  },
+  {
+    "ITEM_NO": "RA 5.1.2",
+    "DESCRIPTION": "6m RC Poles",
+    "UNIT": "NO",
+    "RATE_PER_UNIT": "2230.00"
+  },
+  {
+    "ITEM_NO": "RA 5.1.3",
+    "DESCRIPTION": "3M Wooden Pole",
+    "UNIT": "NO",
+    "RATE_PER_UNIT": "2870.00"
+  },
+  {
+    "ITEM_NO": "RA 5.1.4",
+    "DESCRIPTION": "8.3M RC - light weight & PS (all types ) pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "4740.00"
+  },
+  {
+    "ITEM_NO": "RA 5.1.5",
+    "DESCRIPTION": "8.3m 100kg/9m 200kg RC/Spun",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "5890.00"
+  },
+  {
+    "ITEM_NO": "RA 5.1.6",
+    "DESCRIPTION": "8.3m 500kg/9m  500kg PS/RC/Spun",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "7180.00"
+  },
+  {
+    "ITEM_NO": "RA 5.1.7",
+    "DESCRIPTION": "6m RC light weight & 6m PS spun concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2010.00"
+  },
+  {
+    "ITEM_NO": "RA 5.2",
+    "DESCRIPTION": "shifting of poles ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 5.2.1",
+    "DESCRIPTION": "Shifting Of G.L Pipe 6m/7.6m Wood",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "6030.00"
+  },
+  {
+    "ITEM_NO": "RA 5.2.2 ",
+    "DESCRIPTION": "Shifting Of Pole 6m RC/Spun without dressing",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "7610.00"
+  },
+  {
+    "ITEM_NO": "RA 5.2.3",
+    "DESCRIPTION": "Shifting Of Pole 8.3m/9m Wood Pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "8690.00"
+  },
+  {
+    "ITEM_NO": "RA 5.2.4",
+    "DESCRIPTION": "Shifting Of Pole 8.3m/9m RC/Spun",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "10270.00"
+  },
+  {
+    "ITEM_NO": "RA 5.3",
+    "DESCRIPTION": "9m/8.3m wood pole 3.5+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "836.00"
+  },
+  {
+    "ITEM_NO": "RA 5.4",
+    "DESCRIPTION": "9m/8.3m Concrete pole 7.4 + 0.8",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1713.00"
+  },
+  {
+    "ITEM_NO": "RA 5.5",
+    "DESCRIPTION": "9/350m Concrete pole 9+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2090.00"
+  },
+  {
+    "ITEM_NO": "RA 5.6",
+    "DESCRIPTION": "9/500m Concrete pole 9+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2090.00"
+  },
+  {
+    "ITEM_NO": "RA 6",
+    "DESCRIPTION": "Realignment of poles more than 10 deg angle slant",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 6.1",
+    "DESCRIPTION": "8.3M,9M RC.PS & Wooden Poles",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "5740.00"
+  },
+  {
+    "ITEM_NO": "RA 6.2",
+    "DESCRIPTION": "6M/6.7M/7.6M RC,PS & Wooden Poles ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1800.00"
+  },
+  {
+    "ITEM_NO": "RA 7",
+    "DESCRIPTION": "Removal of  poles/struts",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 7.1",
+    "DESCRIPTION": "8.3/9m wooden pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2580.00"
+  },
+  {
+    "ITEM_NO": "RA 7.2",
+    "DESCRIPTION": "6M/7.6M RC - light weight & spun pole ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3160.00"
+  },
+  {
+    "ITEM_NO": "RA 7.3",
+    "DESCRIPTION": "6m RC 50kg",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3520.00"
+  },
+  {
+    "ITEM_NO": "RA 7.4",
+    "DESCRIPTION": "8.3m RC - light weight & spun pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "5740.00"
+  },
+  {
+    "ITEM_NO": "RA 7.5",
+    "DESCRIPTION": "8.3m/9m RC & PS Pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "7040.00"
+  },
+  {
+    "ITEM_NO": "RA 8",
+    "DESCRIPTION": "Removal of unusable poles/struts",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 8.1",
+    "DESCRIPTION": "6m,8.3m,9m wooden,RC &PS poles/struts",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1800.00"
+  },
+  {
+    "ITEM_NO": "RA 8.2",
+    "DESCRIPTION": "6m/6.7m Concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "669.00"
+  },
+  {
+    "ITEM_NO": "RA 8.3",
+    "DESCRIPTION": "9m/8.3m wood pole 4+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "941.00"
+  },
+  {
+    "ITEM_NO": "RA 8.4",
+    "DESCRIPTION": "9m/8.3m Concrete pole 9+2",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2299.00"
+  },
+  {
+    "ITEM_NO": "RA 9",
+    "DESCRIPTION": "Erection of stays",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RA 9.1",
+    "DESCRIPTION": "Normal stay (LV stay) 4+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "941.00"
+  },
+  {
+    "ITEM_NO": "RA 9.2",
+    "DESCRIPTION": "Flying stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1359.00"
+  },
+  {
+    "ITEM_NO": "RA 9.3",
+    "DESCRIPTION": "Repairing of LV stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "314.00"
+  },
+  {
+    "ITEM_NO": "RA 9.4",
+    "DESCRIPTION": "Retightening of LV stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "105.00"
+  },
+  {
+    "ITEM_NO": "RA 9.5",
+    "DESCRIPTION": "Relocating of LV stay",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "836.00"
+  },
+  {
+    "ITEM_NO": "RB 1",
+    "DESCRIPTION": "Excavation of pole pits",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 1.1",
+    "DESCRIPTION": "2.5'x2'x5 1/2' (10-225 poles) 4.5 +1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1150.00"
+  },
+  {
+    "ITEM_NO": "RB 1.2",
+    "DESCRIPTION": "(11-350 poles) 6+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1463.00"
+  },
+  {
+    "ITEM_NO": "RB 1.3",
+    "DESCRIPTION": "(11-500/ 11-850 poles) 9+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2090.00"
+  },
+  {
+    "ITEM_NO": "RB 1.4",
+    "DESCRIPTION": "(11-1200 poles) 12+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2717.00"
+  },
+  {
+    "ITEM_NO": "RB 1.5",
+    "DESCRIPTION": "(13-500 / 13-850 poles) 12+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2717.00"
+  },
+  {
+    "ITEM_NO": "RB 1.6",
+    "DESCRIPTION": "(13-1200 poles) 18+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3971.00"
+  },
+  {
+    "ITEM_NO": "RB 2",
+    "DESCRIPTION": "Dragging of poles ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 2.1",
+    "DESCRIPTION": "10m wood pole - Flat ground",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "63.00"
+  },
+  {
+    "ITEM_NO": "RB 2.2",
+    "DESCRIPTION": "10m wood pole - Up slope ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "125.00"
+  },
+  {
+    "ITEM_NO": "RB 2.3",
+    "DESCRIPTION": "10m RC/PSS pole- Flat ground",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "125.00"
+  },
+  {
+    "ITEM_NO": "RB 2.4",
+    "DESCRIPTION": "10m RC/PSS pole - Up slope",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "251.00"
+  },
+  {
+    "ITEM_NO": "RB 3 ",
+    "DESCRIPTION": "Excavation of pits for struts",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 3.1",
+    "DESCRIPTION": "(For 10-225 poles) 2.3 +0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "585.00"
+  },
+  {
+    "ITEM_NO": "RB 3.2",
+    "DESCRIPTION": "(11-350 poles) 3+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "732.00"
+  },
+  {
+    "ITEM_NO": "RB 4",
+    "DESCRIPTION": "Excavation of pits for stays",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 4.1",
+    "DESCRIPTION": "(For HT stay) 6+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1359.00"
+  },
+  {
+    "ITEM_NO": "RB 5",
+    "DESCRIPTION": "Erection of poles",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 5.1",
+    "DESCRIPTION": "10m wood pole 6+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1463.00"
+  },
+  {
+    "ITEM_NO": "RB 5.2",
+    "DESCRIPTION": "10m concrete pole 9.7+1",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2236.00"
+  },
+  {
+    "ITEM_NO": "RB 5.3",
+    "DESCRIPTION": "11-350 / 11-500 PS pole 4.5 + (13500/8)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2315.00"
+  },
+  {
+    "ITEM_NO": "RB 5.4",
+    "DESCRIPTION": "11-850/11-1200 PS pole 4.5+(13500/6)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "3182.00"
+  },
+  {
+    "ITEM_NO": "RB 5.5",
+    "DESCRIPTION": "13-500 PS pole 6+(13500/4)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "4420.00"
+  },
+  {
+    "ITEM_NO": "RB 5.6",
+    "DESCRIPTION": "13-850 PS pole 6+(13500/4)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "4420.00"
+  },
+  {
+    "ITEM_NO": "RB 5.6 4",
+    "DESCRIPTION": "13-1200 PS pole 7 +(13500/4)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "4420.00"
+  },
+  {
+    "ITEM_NO": "RB 6",
+    "DESCRIPTION": "Realignment of poles more than 10 deg angle slant.",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 6.1",
+    "DESCRIPTION": "10m R.C or Wood poles 5.5 pit+2.5 ere=8",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1672.00"
+  },
+  {
+    "ITEM_NO": "RB 6.2",
+    "DESCRIPTION": "11.350/11.500 R.C. poles 7 (135000/15)",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "2363.00"
+  },
+  {
+    "ITEM_NO": "RB 7 ",
+    "DESCRIPTION": "Concreting of pole pits",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 7.1",
+    "DESCRIPTION": "10m concrete pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 7.1 a",
+    "DESCRIPTION": "Charge for materials",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "5933.00"
+  },
+  {
+    "ITEM_NO": "RB 7.1 b",
+    "DESCRIPTION": "Labour charge for placing concrete 4.5+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1045.00"
+  },
+  {
+    "ITEM_NO": "RB 7.2",
+    "DESCRIPTION": "11-350 PS pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 7.2 a",
+    "DESCRIPTION": "Charge for materials ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "6290.00"
+  },
+  {
+    "ITEM_NO": "RB 7.2 b",
+    "DESCRIPTION": "Labour charge for placing concrete 5+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1150.00"
+  },
+  {
+    "ITEM_NO": "RB 7.3",
+    "DESCRIPTION": "11-500/11-850 PS pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 7.3 a",
+    "DESCRIPTION": "Charge for materials",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "7595.00"
+  },
+  {
+    "ITEM_NO": "RB 7.3 b",
+    "DESCRIPTION": "Labour charge for placing concrete 5.5 +0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1254.00"
+  },
+  {
+    "ITEM_NO": "RB 7.4",
+    "DESCRIPTION": "11-1200 PS pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 7.4 a",
+    "DESCRIPTION": "Charge for materials ",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "7595.00"
+  },
+  {
+    "ITEM_NO": "RB 7.4 b",
+    "DESCRIPTION": "Labour charge for placing concrete 6.5+0.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1463.00"
+  },
+  {
+    "ITEM_NO": "RB 7.5",
+    "DESCRIPTION": "13-500 PS pole",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "0.00"
+  },
+  {
+    "ITEM_NO": "RB 7.5 a",
+    "DESCRIPTION": "Charge for materials",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "13525.00"
+  },
+  {
+    "ITEM_NO": "RB 7.5 b",
+    "DESCRIPTION": "Labour charge for placing concrete 6.5+.5",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "1463.00"
+  },
+  {
+    "ITEM_NO": "ZA 1",
+    "DESCRIPTION": "Test",
+    "UNIT": "No",
+    "RATE_PER_UNIT": "100.00"
+  }
 ]
