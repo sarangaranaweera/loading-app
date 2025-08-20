@@ -3,7 +3,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEB-V2</title>
+    <title>CEB-V3</title>
 
     <style>
         @media print {
@@ -684,11 +684,11 @@
                 <div class="form-group" >
                     <label style="color: #101010;">Description</label>
                     <div class="autocomplete-container">
-                        <input type="text" x-model="currentItem.description" @input="showSuggestions = true; console.log('Input changed:', currentItem.description)" @blur="setTimeout(() =&gt; showSuggestions = false, 200)" placeholder="Start typing description...">
+                        <input type="text" x-model="currentItem.ino" @input="showSuggestions = true; console.log('Input changed:', currentItem.ino)" @blur="setTimeout(() =&gt; showSuggestions = false, 200)" placeholder="Start typing description...">
                         <div style="font-size: 10px; color: #666; margin-top: 2px;" x-show="showSuggestions">
                         </div>
                         <div class="autocomplete-suggestions" :class="{ &#39;show&#39;: showSuggestions &amp;&amp; filteredSuggestions.length &gt; 0 }">
-                            <template x-for="suggestion in filteredSuggestions" :key="suggestion.description">
+                            <template x-for="suggestion in filteredSuggestions" :key="suggestion.ino">
                                 <div class="autocomplete-item" @click="selectSuggestion(suggestion)">
                                     <div style="font-weight: bold; color: #007acc;" x-text="suggestion.ino"></div>
                                     <div x-text="suggestion.description"></div>
