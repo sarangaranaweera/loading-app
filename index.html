@@ -3,7 +3,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEB-V3</title>
+    <title>CEB-V4</title>
 
     <style>
         @media print {
@@ -934,30 +934,1507 @@ function invoiceApp(){
         showSuggestions: false,
         showSaveNotification: false,
         serviceDescriptions: [
-            {ino: "RA 1", description: "Pole transport (...........) Km", rate: 1500, unit: "Nos"},
-            {ino: "RA 2", description: "Excavation of pole pits 6m/6.7m 15\" 30/33KV", rate: 2500, unit: "Nos"},
-            {ino: "RA 3", description: "Excavation of pole pits 10-8.3m/100-11.5m (Existing...)", rate: 3000, unit: "Nos"},
-            {ino: "RA 4", description: "Excavation of pole pits 590/250Kg", rate: 2200, unit: "Nos"},
-            {ino: "RA 5", description: "Excavation of stay pit - LT", rate: 800, unit: "Nos"},
-            {ino: "RA 6", description: "Erection of Pole/- 6m/8.5m W/R/Cpoles", rate: 4500, unit: "Nos"},
-            {ino: "RA 7", description: "Erection of Pole - 9m/8.5m W/R/C poles", rate: 5000, unit: "Nos"},
-            {ino: "RA 8", description: "Erection of Pole - 9m/250/300m RC poles", rate: 5500, unit: "Nos"},
-            {ino: "RA 9", description: "Erection of feaut - LT W/RC", rate: 1200, unit: "Nos"},
-            {ino: "RA 10", description: "Erection of stay LT - Normal", rate: 1800, unit: "Nos"},
-            {ino: "RA 11", description: "Concreting of pole pits 9/250Kg and 9/500", rate: 3500, unit: "Nos"},
-            {ino: "RA 12", description: "Removal of stay completely", rate: 800, unit: "Nos"},
-            {ino: "RA 13", description: "Removal of Hardware from Existing LV Poles 1ph/3ph", rate: 600, unit: "Nos"},
-            {ino: "RA 14", description: "Stringing of AAC/ABC Conductors 1ph/3ph", rate: 8500, unit: "Km"},
-            {ino: "RA 15", description: "Removal of AAC/ABC Conductors 1ph/3ph", rate: 2500, unit: "Km"},
-            {ino: "RA 16", description: "Re-Tensioning of AAC (Fly) Conductors", rate: 1500, unit: "Km"},
-            {ino: "RA 17", description: "Re-Tensioning of ABC - 1ph/3ph", rate: 1800, unit: "Km"},
-            {ino: "RA 18", description: "Removal of Pole/Struct - 8.3/9m - Wooden Re-usable", rate: 1200, unit: "Nos"},
-            {ino: "RA 19", description: "Removal of Pole/Struct - 8.3/9m - RC Re-usable", rate: 1500, unit: "Nos"},
-            {ino: "RA 20", description: "Removal of Pole/Struct - 6m/8.5m/9m - W/RC Un-usable", rate: 800, unit: "Nos"},
-            {ino: "RA 21", description: "Removal and reconnection of service wire 1ph/3ph", rate: 450, unit: "Nos"},
-            {ino: "RA 22", description: "Changing of service Wire with New wire (Length of service below 30m/Length of service above 30m)", rate: 650, unit: "Nos"},
-            {ino: "RA 23", description: "Rehabilitation of existing services (Length of service below 30m/Length of service above 30m)", rate: 750, unit: "Nos"}
-        ],
+  {
+    ino: "0",
+    description: "0",
+    unit: "0",
+    rate: "1.00"
+  },
+  {
+    ino: "01",
+    description: "Transportation of poles",
+    unit: "Km",
+    rate: "1970.00"
+  },
+  {
+    ino: "01.1",
+    description: "8.3m /9m RC pole",
+    unit: "No",
+    rate: "83.00"
+  },
+  {
+    ino: "01.2",
+    description: "6m RC pole",
+    unit: "No",
+    rate: "43.00"
+  },
+  {
+    ino: "01.3",
+    description: "Wooden pole ",
+    unit: "No",
+    rate: "45.00"
+  },
+  {
+    ino: "33",
+    description: "dfdsfdf",
+    unit: "no",
+    rate: "6.00"
+  },
+  {
+    ino: "777",
+    description: "sdfd dfd fds df ",
+    unit: "rt",
+    rate: "700.00"
+  },
+  {
+    ino: "A 1",
+    description: "Excavation of pole pits ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 1.1",
+    description: "For LT poles 8.3m / 9.0m",
+    unit: "No",
+    rate: "744.00"
+  },
+  {
+    ino: "A 1.2",
+    description: "2.5'' x2'' x5 1/2(9/350 poles)",
+    unit: "No",
+    rate: "837.00"
+  },
+  {
+    ino: "A 1.3",
+    description: "2.5'' x2'' x5 1/2'' (8.3m/9.0m 500kg poles)",
+    unit: "No",
+    rate: "837.00"
+  },
+  {
+    ino: "A 10",
+    description: "Erection of Stays",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 10.1",
+    description: "Normal stay",
+    unit: "No",
+    rate: "744.00"
+  },
+  {
+    ino: "A 10.2",
+    description: "Fly stay - considered as 1.5 times normal stay ",
+    unit: "No",
+    rate: "1116.00"
+  },
+  {
+    ino: "A 11",
+    description: "Dressing of LV pole",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 11.1",
+    description: "1 phase pole ",
+    unit: "No",
+    rate: "167.00"
+  },
+  {
+    ino: "A 11.2",
+    description: "3 phase pole",
+    unit: "No",
+    rate: "223.00"
+  },
+  {
+    ino: "A 11.3",
+    description: "1 Ph.to 3 Ph.Conversion",
+    unit: "No",
+    rate: "167.00"
+  },
+  {
+    ino: "A 11.4",
+    description: "2 ph to.3 ph Conversion ",
+    unit: "No",
+    rate: "112.00"
+  },
+  {
+    ino: "A 12",
+    description: "Stringing of AAC conductors",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 12.1",
+    description: "AAC 7/3.4mm per one conductor per km",
+    unit: "No",
+    rate: "11160.00"
+  },
+  {
+    ino: "A 12.2",
+    description: "AAC 7/4.39mm (Wasp) per one conductor per km",
+    unit: "No",
+    rate: "13020.00"
+  },
+  {
+    ino: "A 12.3",
+    description: "ABC conductors (Inclusive of dressing of poles)",
+    unit: "No",
+    rate: "16.70"
+  },
+  {
+    ino: "A 13",
+    description: "Removal & reconnecting of service wire",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 13.1",
+    description: "Single phase service",
+    unit: "No",
+    rate: "74.00"
+  },
+  {
+    ino: "A 13.2",
+    description: "Three phase service",
+    unit: "No",
+    rate: "130.00"
+  },
+  {
+    ino: "A 14",
+    description: "Earthing",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 14.1",
+    description: "Stringing of No 8 GS wire",
+    unit: "No",
+    rate: "8928.00"
+  },
+  {
+    ino: "A 14.2",
+    description: "Erection of earth pipes down run & making connection",
+    unit: "No",
+    rate: "335.00"
+  },
+  {
+    ino: "A 15",
+    description: "Extra payments",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 15.1",
+    description: "For jobs with line length less than 500m",
+    unit: "No",
+    rate: "2225.00"
+  },
+  {
+    ino: "A 15.2 ",
+    description: "For jobs with line length more than 500m but less than ",
+    unit: "No",
+    rate: "1965.00"
+  },
+  {
+    ino: "A 15.3",
+    description: "Cost of minor way leaves cleaning per km",
+    unit: "No",
+    rate: "1900.00"
+  },
+  {
+    ino: "A 16",
+    description: "Removal and reconnecting of service wire ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 16.1 ",
+    description: "Single phase service",
+    unit: "No",
+    rate: "84.00"
+  },
+  {
+    ino: "A 16.2",
+    description: "Three phase service",
+    unit: "No",
+    rate: "146.00"
+  },
+  {
+    ino: "A 17",
+    description: "Changing of service wire with new wire",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 17.1",
+    description: "Length of service below 30m",
+    unit: "No",
+    rate: "752.00"
+  },
+  {
+    ino: "A 17.2",
+    description: "Length of service above 30m",
+    unit: "No",
+    rate: "940.00"
+  },
+  {
+    ino: "A 18",
+    description: "Rehabilitation of existing service",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 18.1 ",
+    description: "Length of service below 30m",
+    unit: "No",
+    rate: "439.00"
+  },
+  {
+    ino: "A 18.2",
+    description: "Length of service above 30m",
+    unit: "No",
+    rate: "711.00"
+  },
+  {
+    ino: "A 19",
+    description: "Replacing of poles",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 19.1 ",
+    description: "Replacing of 6m/6.7m wd pole or Con pole with same size wd pole",
+    unit: "No",
+    rate: "1881.00"
+  },
+  {
+    ino: "A 19.2",
+    description: "Replacing of 6m/6.7m wd pole or con pole with same size con pole ",
+    unit: "No",
+    rate: "3000.00"
+  },
+  {
+    ino: "A 19.3",
+    description: "Replacing of 8.3m/9m wd pole or con pole with same size wd pole ",
+    unit: "No",
+    rate: "2926.00"
+  },
+  {
+    ino: "A 19.4",
+    description: "Replacing of 8.3m/9m wd pole or con pole with same size con pole ",
+    unit: "No",
+    rate: "3135.00"
+  },
+  {
+    ino: "A 2 ",
+    description: "Excavation of pits for struts",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 2.1",
+    description: "2.5'' x2'' x2'' (For LT poles)",
+    unit: "No",
+    rate: "372.00"
+  },
+  {
+    ino: "A 20",
+    description: "Minor way leaves",
+    unit: "No",
+    rate: "950.00"
+  },
+  {
+    ino: "A 3",
+    description: "Excavation of pits for stays",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 3.1 ",
+    description: "2.5' x 2'  x 5'  (For LT stay)",
+    unit: "No",
+    rate: "744.00"
+  },
+  {
+    ino: "A 4",
+    description: "Dragging of poles (First 100m distance shall not be paid)",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 4.1",
+    description: "8.3/9m Wood pole - Flat ground",
+    unit: "No",
+    rate: "37.00"
+  },
+  {
+    ino: "A 4.2",
+    description: "8.3/9m Wood pole - Up slope (>15 inclination)",
+    unit: "No",
+    rate: "56.00"
+  },
+  {
+    ino: "A 4.3",
+    description: "8.3/9m RC pole - Flat ground",
+    unit: "No",
+    rate: "74.00"
+  },
+  {
+    ino: "A 4.4",
+    description: "8.3/9m RC pole - Up slope (>15 inclination)",
+    unit: "No",
+    rate: "149.00"
+  },
+  {
+    ino: "A 5",
+    description: "Erection of poles",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 5.1",
+    description: "9m/8.3m Wood pole",
+    unit: "No",
+    rate: "670.00"
+  },
+  {
+    ino: "A 5.2",
+    description: "9m/8.3m Concrete pole",
+    unit: "No",
+    rate: "1507.00"
+  },
+  {
+    ino: "A 5.3",
+    description: "9/350m Concrete pole",
+    unit: "No",
+    rate: "1674.00"
+  },
+  {
+    ino: "A 5.4",
+    description: "9/500m Concrete pole",
+    unit: "No",
+    rate: "1674.00"
+  },
+  {
+    ino: "A 6",
+    description: "Removal of poles/struts ",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 6.1",
+    description: "8.3/9m 500kg P.S",
+    unit: "No",
+    rate: "1488.00"
+  },
+  {
+    ino: "A 7",
+    description: "Concreting of pole pits",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 7.1",
+    description: "9m/8.3m Concrete pole (loose soil condition only",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "A 7.1 A",
+    description: "Charge for materials",
+    unit: "No",
+    rate: "5458.00"
+  },
+  {
+    ino: "A 7.1 B",
+    description: "Labour charge for placing concrete ",
+    unit: "No",
+    rate: "744.00"
+  },
+  {
+    ino: "A 7.2",
+    description: "Concreting of pole pits 9/350kg and 9/500",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 7.2 A",
+    description: "Charge for materials ",
+    unit: "No",
+    rate: "5933.00"
+  },
+  {
+    ino: "A 7.2 B",
+    description: "Labour charge for placing concrete ",
+    unit: "No",
+    rate: "837.00"
+  },
+  {
+    ino: "A 8",
+    description: "Re- Tensioning of conductor of existing lines ",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "A 8.1",
+    description: "7/3.4mm, 7/4.39mm All aluminium conductors",
+    unit: "No",
+    rate: "8370.00"
+  },
+  {
+    ino: "A 8.2",
+    description: "ABC",
+    unit: "No",
+    rate: "11904.00"
+  },
+  {
+    ino: "A 9.1",
+    description: "9m/8.3m Wood pole",
+    unit: "No",
+    rate: "744.00"
+  },
+  {
+    ino: "A 9.2",
+    description: "9m/8.3m Concrete pole",
+    unit: "No",
+    rate: "1674.00"
+  },
+  {
+    ino: "A9",
+    description: "Erection of Struts",
+    unit: "",
+    rate: "0.00"
+  },
+  {
+    ino: "RA  21",
+    description: "Replacing of poles ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 1",
+    description: "Excavation of pole pits",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 1.1",
+    description: "(For service poles) 6m/6.7m -2.5",
+    unit: "No",
+    rate: "1800.00"
+  },
+  {
+    ino: "RA 1.2",
+    description: "(For LT poles 8.3m/9m) 4+0.5",
+    unit: "No",
+    rate: "3230.00"
+  },
+  {
+    ino: "RA 1.3",
+    description: "(9/350 poles) 4.5+0.5",
+    unit: "No",
+    rate: "3590.00"
+  },
+  {
+    ino: "RA 1.4",
+    description: "(9/500 poles) 4.5+0.5",
+    unit: "No",
+    rate: "1800.00"
+  },
+  {
+    ino: "RA 10",
+    description: "Dressing of LV pole",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 10.1",
+    description: "6.0m/6.7m Wooden pole",
+    unit: "No",
+    rate: "1720.00"
+  },
+  {
+    ino: "RA 10.2",
+    description: "6.0m/6.7m concrete Pole",
+    unit: "No",
+    rate: "2300.00"
+  },
+  {
+    ino: "RA 10.3",
+    description: "9m/8.3m Wooden Pole",
+    unit: "No",
+    rate: "3230.00"
+  },
+  {
+    ino: "RA 10.4",
+    description: "9m/8.3m concrete pole",
+    unit: "No",
+    rate: "7900.00"
+  },
+  {
+    ino: "RA 10.5",
+    description: "Fixing of Strut  Brackets for existing Struts",
+    unit: "No",
+    rate: "720.00"
+  },
+  {
+    ino: "RA 11",
+    description: "Removal of hardware from Existing LV poles",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 11.1 ",
+    description: "Normal Stay (LV Stay)",
+    unit: "No",
+    rate: "3230.00"
+  },
+  {
+    ino: "RA 11.2",
+    description: "times normal stay",
+    unit: "No",
+    rate: "4670.00"
+  },
+  {
+    ino: "RA 11.3",
+    description: "Repairing of LV stay",
+    unit: "No",
+    rate: "1080.00"
+  },
+  {
+    ino: "RA 11.4",
+    description: "Retightening of LV stay",
+    unit: "No",
+    rate: "360.00"
+  },
+  {
+    ino: "RA 11.5",
+    description: "Relocating of LV stay",
+    unit: "No",
+    rate: "2870.00"
+  },
+  {
+    ino: "RA 12",
+    description: "Stringing of AAC conductors",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 12.1",
+    description: "1 phase pole (average rate for shackle & intermediate poles)",
+    unit: "No",
+    rate: "650.00"
+  },
+  {
+    ino: "RA 12.2",
+    description: "3 phase  pole",
+    unit: "No",
+    rate: "860.00"
+  },
+  {
+    ino: "RA 12.3",
+    description: "1 ph -3ph conversion ",
+    unit: "No",
+    rate: "650.00"
+  },
+  {
+    ino: "RA 12.4",
+    description: "2 ph -3ph conversion  (-do-) allowed half rate of 1ph -3ph",
+    unit: "No",
+    rate: "430.00"
+  },
+  {
+    ino: "RA 12.5",
+    description: "1 ph tapping pole",
+    unit: "No",
+    rate: "720.00"
+  },
+  {
+    ino: "RA 12.6",
+    description: "2 ph tapping pole ",
+    unit: "No",
+    rate: "860.00"
+  },
+  {
+    ino: "RA 12.7",
+    description: "3 ph tapping pole",
+    unit: "No",
+    rate: "1080.00"
+  },
+  {
+    ino: "RA 12.8",
+    description: "fixing of LV brackets ",
+    unit: "No",
+    rate: "1440.00"
+  },
+  {
+    ino: "RA 12.9",
+    description: "fixing of bunddle conductor accessories ,suspension/large angle/dead end assembly",
+    unit: "No",
+    rate: "430.00"
+  },
+  {
+    ino: "RA 13",
+    description: "Removal of conductors ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 13.1",
+    description: "single phase",
+    unit: "No",
+    rate: "860.00"
+  },
+  {
+    ino: "RA 13.2",
+    description: "Three phase",
+    unit: "No",
+    rate: "1290.00"
+  },
+  {
+    ino: "RA 13.3 ",
+    description: "Removal of street lamp(complete set)",
+    unit: "NO",
+    rate: "860.00"
+  },
+  {
+    ino: "RA 13.4",
+    description: "Installation of street lamp (complete set)",
+    unit: "NO",
+    rate: "930.00"
+  },
+  {
+    ino: "RA 14",
+    description: "Re-Tensioning of Conductors on Existing lines ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 14.1",
+    description: "AAC 7/3.4mm (fly) per one conductor per km",
+    unit: "No",
+    rate: "43080.00"
+  },
+  {
+    ino: "RA 14.2",
+    description: "AAC 7/4mm (wasp) per one conductor per km",
+    unit: "No",
+    rate: "50260.00"
+  },
+  {
+    ino: "RA 14.3",
+    description: "ABC 50X1+54.6X1 or 70x1+54.6x1 conductors ( inclusive of dressing of pole) per km",
+    unit: "No",
+    rate: "86160.00"
+  },
+  {
+    ino: "RA 14.4",
+    description: "ABC 70X3+54 6X1+16X1 conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    unit: "No",
+    rate: "143600.00"
+  },
+  {
+    ino: "RA 14.5",
+    description: "ABC 95X3+70X1+16X1 Conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    unit: "No",
+    rate: "157960.00"
+  },
+  {
+    ino: "RA 15",
+    description: "Concreting of pole pits",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 15.1",
+    description: "7/3.79mm,7/3.4mm All Aluminium (per conductor)",
+    unit: "No",
+    rate: "19390.00"
+  },
+  {
+    ino: "RA 15.1 a",
+    description: "Charge for materials",
+    unit: "No",
+    rate: "5458.00"
+  },
+  {
+    ino: "RA 15.1 b",
+    description: "7/3.79mm,7/3.4mm All Aluminium (per conductor)",
+    unit: "No",
+    rate: "19390.00"
+  },
+  {
+    ino: "RA 15.2",
+    description: "ABC 70X3+54 6X1+16X1 conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    unit: "No",
+    rate: "19390.00"
+  },
+  {
+    ino: "RA 15.2 a",
+    description: "Charge for materials ",
+    unit: "No",
+    rate: "5933.00"
+  },
+  {
+    ino: "RA 15.2 b",
+    description: "Labour charge for  placing concrete 4.5+0.5",
+    unit: "No",
+    rate: "1045.00"
+  },
+  {
+    ino: "RA 16",
+    description: "Re - tensioning of conductors on existing lines ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 16.1",
+    description: "7/34mm7/4.39mm All Aluminium conductors (per conductor)",
+    unit: "No",
+    rate: "32310.00"
+  },
+  {
+    ino: "RA 16.2",
+    description: "ABC 50X1+54.6X1 or 70x1+54.6x1 conductors ( inclusive of dressing of pole) per km",
+    unit: "No",
+    rate: "27280.00"
+  },
+  {
+    ino: "RA 16.3 ",
+    description: "ABC 70X3+54 6X1+16X1 conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    unit: "No",
+    rate: "45950.00"
+  },
+  {
+    ino: "RA 16.4",
+    description: "ABC 95X3+70X1+16X1 Conductors (4 or 5 cores)-(inclusive of dressing of poles)per km",
+    unit: "No",
+    rate: "47390.00"
+  },
+  {
+    ino: "RA 17",
+    description: "Conctreting  of pole pits",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 17.1",
+    description: "Length of service below 30m",
+    unit: "No",
+    rate: "752.00"
+  },
+  {
+    ino: "RA 17.1.1",
+    description: "8.3m/9m RC pole  charge for materials ",
+    unit: "No",
+    rate: "9050.00"
+  },
+  {
+    ino: "RA 17.1.2",
+    description: "8.3m/9m RC pole labour charge for placing concrete",
+    unit: "No",
+    rate: "3590.00"
+  },
+  {
+    ino: "RA 17.2",
+    description: "Length of service above 30m",
+    unit: "No",
+    rate: "940.00"
+  },
+  {
+    ino: "RA 18",
+    description: "Removal and reconnecting of service wire",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 18.1",
+    description: "single phase service ",
+    unit: "No",
+    rate: "290.00"
+  },
+  {
+    ino: "RA 18.2",
+    description: "three phase service",
+    unit: "No",
+    rate: "500.00"
+  },
+  {
+    ino: "RA 18.3",
+    description: "single phase service",
+    unit: "No",
+    rate: "570.00"
+  },
+  {
+    ino: "RA 18.4",
+    description: "Three phase service",
+    unit: "No",
+    rate: "1010.00"
+  },
+  {
+    ino: "RA 18.5",
+    description: "spur line ",
+    unit: "No",
+    rate: "1220.00"
+  },
+  {
+    ino: "RA 19",
+    description: "Changing of service wire with new wire (per service)",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 19.1",
+    description: "a.Single phase - first span  ",
+    unit: "No",
+    rate: "2580.00"
+  },
+  {
+    ino: "RA 19.2",
+    description: "Replacing of 6m/6.7m wood pole or Concrete pole with same size concrete pole",
+    unit: "No",
+    rate: "2090.00"
+  },
+  {
+    ino: "RA 19.2.a",
+    description: "Three phase first span ",
+    unit: "No",
+    rate: "3950.00"
+  },
+  {
+    ino: "RA 19.3",
+    description: "Replacing of 8.3m/9m wood pole or Concrete pole with same size wooden pole",
+    unit: "No",
+    rate: "2926.00"
+  },
+  {
+    ino: "RA 19.4",
+    description: "Replacing of 8.3m/9m wood pole or Concrete pole with same size concrete pole",
+    unit: "No",
+    rate: "3135.00"
+  },
+  {
+    ino: "RA 2",
+    description: "Excavation of pits for struts",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 2.1",
+    description: "(For LT & service poles) 2",
+    unit: "No",
+    rate: "1440.00"
+  },
+  {
+    ino: "RA 20 ",
+    description: "Rehabilitation of existing services ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 20.1",
+    description: " Length of service bellow 30m",
+    unit: "No",
+    rate: "1510.00"
+  },
+  {
+    ino: "RA 20.2",
+    description: "Length of service above 30m",
+    unit: "No",
+    rate: "2440.00"
+  },
+  {
+    ino: "RA 20.3",
+    description: "Removing from tapping point,crimp and refix the ",
+    unit: "No",
+    rate: "720.00"
+  },
+  {
+    ino: "RA 21.1",
+    description: "Replacing of 6.0m/6.7m wood pole or concrete pole with same size wooden pole ",
+    unit: "No",
+    rate: "6460.00"
+  },
+  {
+    ino: "RA 21.2",
+    description: "Replacing of 6.0m/6.7m wood pole or concrete pole with same size concrete pole",
+    unit: "No",
+    rate: "7180.00"
+  },
+  {
+    ino: "RA 21.3",
+    description: "Replacing f 8.3m/9.0m wood pole or concrete pole with same size wooden pole",
+    unit: "No",
+    rate: "10050.00"
+  },
+  {
+    ino: "RA 21.4",
+    description: "Replacing of 8.3m/9.0m wood pole or concrete pole with same size concrete pole",
+    unit: "No",
+    rate: "10770.00"
+  },
+  {
+    ino: "RA 22.1",
+    description: "shifting meter to another location using same service bracket - single phase",
+    unit: "No",
+    rate: "2150.00"
+  },
+  {
+    ino: "RA 22.2",
+    description: "shifting meter to another location using same service bracket -  three phase",
+    unit: "No",
+    rate: "2870.00"
+  },
+  {
+    ino: "RA 22.3",
+    description: "shifting meter to (seperate) location - single phase",
+    unit: "No",
+    rate: "2870.00"
+  },
+  {
+    ino: "RA 22.4",
+    description: "shifting meter to (seperate) location - three phase",
+    unit: "No",
+    rate: "4310.00"
+  },
+  {
+    ino: "RA 23.1",
+    description: "minor wayleaves ",
+    unit: "No",
+    rate: "3880.00"
+  },
+  {
+    ino: "RA 3",
+    description: "Excavation of pits for stays ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "Ra 3.1",
+    description: "(For LT Stay) 4+0.5",
+    unit: "No",
+    rate: "3230.00"
+  },
+  {
+    ino: "RA 4",
+    description: "Dragging of poles",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 4.1",
+    description: "8.3/9m wood pole- Flat ground",
+    unit: "No",
+    rate: "140.00"
+  },
+  {
+    ino: "RA 4.2",
+    description: "8.3/9m wood pole - Up slope",
+    unit: "No",
+    rate: "220.00"
+  },
+  {
+    ino: "RA 4.3",
+    description: "8.3/9m RC pole - Flat ground",
+    unit: "No",
+    rate: "430.00"
+  },
+  {
+    ino: "RA 4.4",
+    description: "8.3/9m RC pole - Up slope",
+    unit: "No",
+    rate: "790.00"
+  },
+  {
+    ino: "RA 5",
+    description: "Erection of poles",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 5.1",
+    description: "Erection of poles",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 5.1.1",
+    description: "6m Wooden poles",
+    unit: "No",
+    rate: "1650.00"
+  },
+  {
+    ino: "RA 5.1.2",
+    description: "6m RC Poles",
+    unit: "NO",
+    rate: "2230.00"
+  },
+  {
+    ino: "RA 5.1.3",
+    description: "3M Wooden Pole",
+    unit: "NO",
+    rate: "2870.00"
+  },
+  {
+    ino: "RA 5.1.4",
+    description: "8.3M RC - light weight & PS (all types ) pole",
+    unit: "No",
+    rate: "4740.00"
+  },
+  {
+    ino: "RA 5.1.5",
+    description: "8.3m 100kg/9m 200kg RC/Spun",
+    unit: "No",
+    rate: "5890.00"
+  },
+  {
+    ino: "RA 5.1.6",
+    description: "8.3m 500kg/9m  500kg PS/RC/Spun",
+    unit: "No",
+    rate: "7180.00"
+  },
+  {
+    ino: "RA 5.1.7",
+    description: "6m RC light weight & 6m PS spun concrete pole",
+    unit: "No",
+    rate: "2010.00"
+  },
+  {
+    ino: "RA 5.2",
+    description: "shifting of poles ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 5.2.1",
+    description: "Shifting Of G.L Pipe 6m/7.6m Wood",
+    unit: "No",
+    rate: "6030.00"
+  },
+  {
+    ino: "RA 5.2.2 ",
+    description: "Shifting Of Pole 6m RC/Spun without dressing",
+    unit: "No",
+    rate: "7610.00"
+  },
+  {
+    ino: "RA 5.2.3",
+    description: "Shifting Of Pole 8.3m/9m Wood Pole",
+    unit: "No",
+    rate: "8690.00"
+  },
+  {
+    ino: "RA 5.2.4",
+    description: "Shifting Of Pole 8.3m/9m RC/Spun",
+    unit: "No",
+    rate: "10270.00"
+  },
+  {
+    ino: "RA 5.3",
+    description: "9m/8.3m wood pole 3.5+0.5",
+    unit: "No",
+    rate: "836.00"
+  },
+  {
+    ino: "RA 5.4",
+    description: "9m/8.3m Concrete pole 7.4 + 0.8",
+    unit: "No",
+    rate: "1713.00"
+  },
+  {
+    ino: "RA 5.5",
+    description: "9/350m Concrete pole 9+1",
+    unit: "No",
+    rate: "2090.00"
+  },
+  {
+    ino: "RA 5.6",
+    description: "9/500m Concrete pole 9+1",
+    unit: "No",
+    rate: "2090.00"
+  },
+  {
+    ino: "RA 6",
+    description: "Realignment of poles more than 10 deg angle slant",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 6.1",
+    description: "8.3M,9M RC.PS & Wooden Poles",
+    unit: "No",
+    rate: "5740.00"
+  },
+  {
+    ino: "RA 6.2",
+    description: "6M/6.7M/7.6M RC,PS & Wooden Poles ",
+    unit: "No",
+    rate: "1800.00"
+  },
+  {
+    ino: "RA 7",
+    description: "Removal of  poles/struts",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 7.1",
+    description: "8.3/9m wooden pole ",
+    unit: "No",
+    rate: "2580.00"
+  },
+  {
+    ino: "RA 7.2",
+    description: "6M/7.6M RC - light weight & spun pole ",
+    unit: "No",
+    rate: "3160.00"
+  },
+  {
+    ino: "RA 7.3",
+    description: "6m RC 50kg",
+    unit: "No",
+    rate: "3520.00"
+  },
+  {
+    ino: "RA 7.4",
+    description: "8.3m RC - light weight & spun pole",
+    unit: "No",
+    rate: "5740.00"
+  },
+  {
+    ino: "RA 7.5",
+    description: "8.3m/9m RC & PS Pole",
+    unit: "No",
+    rate: "7040.00"
+  },
+  {
+    ino: "RA 8",
+    description: "Removal of unusable poles/struts",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 8.1",
+    description: "6m,8.3m,9m wooden,RC &PS poles/struts",
+    unit: "No",
+    rate: "1800.00"
+  },
+  {
+    ino: "RA 8.2",
+    description: "6m/6.7m Concrete pole",
+    unit: "No",
+    rate: "669.00"
+  },
+  {
+    ino: "RA 8.3",
+    description: "9m/8.3m wood pole 4+0.5",
+    unit: "No",
+    rate: "941.00"
+  },
+  {
+    ino: "RA 8.4",
+    description: "9m/8.3m Concrete pole 9+2",
+    unit: "No",
+    rate: "2299.00"
+  },
+  {
+    ino: "RA 9",
+    description: "Erection of stays",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RA 9.1",
+    description: "Normal stay (LV stay) 4+0.5",
+    unit: "No",
+    rate: "941.00"
+  },
+  {
+    ino: "RA 9.2",
+    description: "Flying stay",
+    unit: "No",
+    rate: "1359.00"
+  },
+  {
+    ino: "RA 9.3",
+    description: "Repairing of LV stay",
+    unit: "No",
+    rate: "314.00"
+  },
+  {
+    ino: "RA 9.4",
+    description: "Retightening of LV stay",
+    unit: "No",
+    rate: "105.00"
+  },
+  {
+    ino: "RA 9.5",
+    description: "Relocating of LV stay",
+    unit: "No",
+    rate: "836.00"
+  },
+  {
+    ino: "RB 1",
+    description: "Excavation of pole pits",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 1.1",
+    description: "2.5'x2'x5 1/2' (10-225 poles) 4.5 +1",
+    unit: "No",
+    rate: "1150.00"
+  },
+  {
+    ino: "RB 1.2",
+    description: "(11-350 poles) 6+1",
+    unit: "No",
+    rate: "1463.00"
+  },
+  {
+    ino: "RB 1.3",
+    description: "(11-500/ 11-850 poles) 9+1",
+    unit: "No",
+    rate: "2090.00"
+  },
+  {
+    ino: "RB 1.4",
+    description: "(11-1200 poles) 12+1",
+    unit: "No",
+    rate: "2717.00"
+  },
+  {
+    ino: "RB 1.5",
+    description: "(13-500 / 13-850 poles) 12+1",
+    unit: "No",
+    rate: "2717.00"
+  },
+  {
+    ino: "RB 1.6",
+    description: "(13-1200 poles) 18+1",
+    unit: "No",
+    rate: "3971.00"
+  },
+  {
+    ino: "RB 2",
+    description: "Dragging of poles ",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 2.1",
+    description: "10m wood pole - Flat ground",
+    unit: "No",
+    rate: "63.00"
+  },
+  {
+    ino: "RB 2.2",
+    description: "10m wood pole - Up slope ",
+    unit: "No",
+    rate: "125.00"
+  },
+  {
+    ino: "RB 2.3",
+    description: "10m RC/PSS pole- Flat ground",
+    unit: "No",
+    rate: "125.00"
+  },
+  {
+    ino: "RB 2.4",
+    description: "10m RC/PSS pole - Up slope",
+    unit: "No",
+    rate: "251.00"
+  },
+  {
+    ino: "RB 3 ",
+    description: "Excavation of pits for struts",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 3.1",
+    description: "(For 10-225 poles) 2.3 +0.5",
+    unit: "No",
+    rate: "585.00"
+  },
+  {
+    ino: "RB 3.2",
+    description: "(11-350 poles) 3+0.5",
+    unit: "No",
+    rate: "732.00"
+  },
+  {
+    ino: "RB 4",
+    description: "Excavation of pits for stays",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 4.1",
+    description: "(For HT stay) 6+0.5",
+    unit: "No",
+    rate: "1359.00"
+  },
+  {
+    ino: "RB 5",
+    description: "Erection of poles",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 5.1",
+    description: "10m wood pole 6+1",
+    unit: "No",
+    rate: "1463.00"
+  },
+  {
+    ino: "RB 5.2",
+    description: "10m concrete pole 9.7+1",
+    unit: "No",
+    rate: "2236.00"
+  },
+  {
+    ino: "RB 5.3",
+    description: "11-350 / 11-500 PS pole 4.5 + (13500/8)",
+    unit: "No",
+    rate: "2315.00"
+  },
+  {
+    ino: "RB 5.4",
+    description: "11-850/11-1200 PS pole 4.5+(13500/6)",
+    unit: "No",
+    rate: "3182.00"
+  },
+  {
+    ino: "RB 5.5",
+    description: "13-500 PS pole 6+(13500/4)",
+    unit: "No",
+    rate: "4420.00"
+  },
+  {
+    ino: "RB 5.6",
+    description: "13-850 PS pole 6+(13500/4)",
+    unit: "No",
+    rate: "4420.00"
+  },
+  {
+    ino: "RB 5.6 4",
+    description: "13-1200 PS pole 7 +(13500/4)",
+    unit: "No",
+    rate: "4420.00"
+  },
+  {
+    ino: "RB 6",
+    description: "Realignment of poles more than 10 deg angle slant.",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 6.1",
+    description: "10m R.C or Wood poles 5.5 pit+2.5 ere=8",
+    unit: "No",
+    rate: "1672.00"
+  },
+  {
+    ino: "RB 6.2",
+    description: "11.350/11.500 R.C. poles 7 (135000/15)",
+    unit: "No",
+    rate: "2363.00"
+  },
+  {
+    ino: "RB 7 ",
+    description: "Concreting of pole pits",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 7.1",
+    description: "10m concrete pole",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 7.1 a",
+    description: "Charge for materials",
+    unit: "No",
+    rate: "5933.00"
+  },
+  {
+    ino: "RB 7.1 b",
+    description: "Labour charge for placing concrete 4.5+0.5",
+    unit: "No",
+    rate: "1045.00"
+  },
+  {
+    ino: "RB 7.2",
+    description: "11-350 PS pole",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 7.2 a",
+    description: "Charge for materials ",
+    unit: "No",
+    rate: "6290.00"
+  },
+  {
+    ino: "RB 7.2 b",
+    description: "Labour charge for placing concrete 5+0.5",
+    unit: "No",
+    rate: "1150.00"
+  },
+  {
+    ino: "RB 7.3",
+    description: "11-500/11-850 PS pole",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 7.3 a",
+    description: "Charge for materials",
+    unit: "No",
+    rate: "7595.00"
+  },
+  {
+    ino: "RB 7.3 b",
+    description: "Labour charge for placing concrete 5.5 +0.5",
+    unit: "No",
+    rate: "1254.00"
+  },
+  {
+    ino: "RB 7.4",
+    description: "11-1200 PS pole",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 7.4 a",
+    description: "Charge for materials ",
+    unit: "No",
+    rate: "7595.00"
+  },
+  {
+    ino: "RB 7.4 b",
+    description: "Labour charge for placing concrete 6.5+0.5",
+    unit: "No",
+    rate: "1463.00"
+  },
+  {
+    ino: "RB 7.5",
+    description: "13-500 PS pole",
+    unit: "No",
+    rate: "0.00"
+  },
+  {
+    ino: "RB 7.5 a",
+    description: "Charge for materials",
+    unit: "No",
+    rate: "13525.00"
+  },
+  {
+    ino: "RB 7.5 b",
+    description: "Labour charge for placing concrete 6.5+.5",
+    unit: "No",
+    rate: "1463.00"
+  },
+  {
+    ino: "ZA 1",
+    description: "Test",
+    unit: "No",
+    rate: "100.00"
+  }
+],
 
         // localStorage keys
         storageKeys: {
