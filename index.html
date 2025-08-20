@@ -1047,12 +1047,12 @@ function invoiceApp(){
         },
 
         get filteredSuggestions() {
-            const suggestions = this.currentItem.description ? 
+            const suggestions = this.currentItem.ino ? 
                 this.serviceDescriptions.filter(item => 
-                    item.description.toLowerCase().includes(this.currentItem.description.toLowerCase()) ||
-                    item.ino.toLowerCase().includes(this.currentItem.description.toLowerCase())
+                    item.ino.toLowerCase().includes(this.currentItem.ino.toLowerCase()) ||
+                    item.ino.toLowerCase().includes(this.currentItem.ino.toLowerCase())
                 ) : [];
-            console.log('Filtered suggestions:', suggestions, 'for input:', this.currentItem.description);
+            console.log('Filtered suggestions:', suggestions, 'for input:', this.currentItem.ino);
             return suggestions;
         },
 
