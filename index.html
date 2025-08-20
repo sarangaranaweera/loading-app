@@ -276,6 +276,7 @@
             font-size: 14px;
             font-weight: bold;
             margin-bottom: 2px;
+            letter-spacing: 2px;
         }
 
         .subtitle {
@@ -352,7 +353,7 @@
         .col-qty { width: 30px; }
         .col-amount { width: 70px; }
         .col-cert-qty { width: 50px; }
-        .col-cert-amount { width: 100px; }
+        .col-cert-amount { width: 150px; }
 
         .col-font {
             font-
@@ -393,13 +394,13 @@
         .summary-section {
             border: 2px solid #000;
             border-top: none;
-            min-height: 80px;
+            min-height: 60px;
         }
 
         .summary-text {
             padding: 10px;
             text-align: center;
-            font-size: 9px;
+            font-size: 12px;
             line-height: 1.4;
         }
 
@@ -417,7 +418,7 @@
         }
 
         .signature-right {
-            width: 200px;
+            width: 400px;
             padding: 10px;
         }
 
@@ -518,6 +519,21 @@
             animation: moonrise 1800s linear infinite;
         }
 
+        /* Moon Glow Effect */
+        .moon::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 75px;
+            height: 75px;
+            background: radial-gradient(circle, rgba(255, 255, 200, 0.3) 0%, rgba(255, 255, 200, 0.1) 50%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+            animation: moonGlow 4s ease-in-out infinite;
+            opacity: 0;
+        }
+
         .moon::before {
             content: '';
             position: absolute;
@@ -589,6 +605,18 @@
             }
         }
 
+        /* Moon Glow Animation */
+        @keyframes moonGlow {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
         /* Ensure form content is above background */
         .form-section > * {
             position: relative;
@@ -643,7 +671,12 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                 <h2><img width="45px" height="40px" src="./ceblogo.PNG" /> Contractor Billing System</h2>
                 <div style="font-size: 11px; color: #FFFFFF; text-shadow: 0 1px 2px rgba(0,0,0,0.7);">
-                    Auto-save: <span x-text="getLastSaved()">Never</span>
+                    <button type="button" style="margin-right: 25px; " class="btn btn-primary" @click="clearInvoice()">
+                        ➕ New Invoice
+                     </button>
+                     <a href="./summary.html" target="_blank" class="btn btn-primary" style="text-decoration: none;">
+                        🧾Summary Bill
+                     </a>
                 </div>
             </div>
                          <div class="form-row">
@@ -652,31 +685,23 @@
                      <input type="text" x-model="invoiceData.contractorName" @input="saveToStorage()" placeholder="Enter contractor name">
                  </div>
                  <div class="form-group">
-                     <label>Location</label>
+                     <label>Job Name</label>
                      <input type="text" x-model="invoiceData.location" @input="saveToStorage()" placeholder="Enter location">
                  </div>
                  <div class="form-group">
-                     <label>Service Number</label>
+                     <label>Job Number</label>
                      <input type="text" x-model="invoiceData.serviceNumber" @input="saveToStorage()" placeholder="Enter service number">
                  </div>
                  <div class="form-group">
-                     <label>Report Date</label>
+                     <label>Completed Date</label>
                      <input type="date" x-model="invoiceData.reportDate" @input="saveToStorage()">
-                 </div>
-             </div>
-             <div class="form-row">
-                 <div class="form-group">
-                     <label>Office Name</label>
-                     <input type="text" x-model="invoiceData.officeName" @input="saveToStorage()" placeholder="Enter office name (e.g., Area Office - Matara)">
                  </div>
              </div>
         </div>
 
         <!-- Line Items Section -->
         <div class="line-items-section no-print">
-            <button type="button" class="btn btn-primary-2" @click="clearInvoice()">
-               + New Invoice
-            </button>
+
             <h2>Line Items</h2>
             
             <!-- Add Line Item Form -->
@@ -760,17 +785,10 @@
         <div class="controls no-print">
             <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; align-items: center;">
                 <button type="button" class="btn btn-success" @click="printInvoice()" :disabled="lineItems.length === 0" disabled="disabled">
-                    Print Invoice
+                    <span style="font-size: 15px;">🖨️</span> Print</span>
                 </button>
 
 
-            </div>
-            <div style="text-align: center; margin-top: 10px; font-size: 11px; color: #666;">
-                Last saved: <span x-text="getLastSaved()">Never</span>
-                <br>
-                <small style="font-size: 10px; color: #999;">
-                    💾 Auto-saves every 30 seconds • Ctrl+S to save manually
-                </small>
             </div>
         </div>
 
@@ -782,11 +800,11 @@
                     <div class="logo" style="background-image: url('./ceblogo.PNG');"></div>
                 </div>
                 <div class="title-section">
-                    <div class="main-title">Contractor Invoice</div>
+                    <div class="main-title">CONTRACTOR INVOICE</div>
                 </div>
                                  <div class="office-info">
                      <div class="office-title">Ceylon Electricity Board</div>
-                     <div x-text="invoiceData.officeName">Area Office - Matara</div>
+                     <div x-text="invoiceData.officeName">CSC - Matara</div>
                  </div>
             </div>
 
@@ -808,13 +826,13 @@
                 </div>
                 <div class="info-right">
                     <div class="info-row">
-                        <div class="info-value" style="text-align: center; font-weight: bold;">Bill No.</div>
+                        <div class="info-value" ></div>
                     </div>
                     <div class="info-row">
                         <div class="info-value"></div>
                     </div>
                     <div class="info-row">
-                        <div class="info-label">End Date :</div>
+                        <div class="info-label" style="width: 80px;">Completed Date :</div>
                         <div class="info-value" x-text="formatDate(invoiceData.reportDate)"></div>
                     </div>
                 </div>
@@ -860,8 +878,9 @@
             <!-- Summary Section -->
             <div class="summary-section">
                 <div class="summary-text">
-                    Total : <span x-text="grandTotal.toFixed(2)">0.00</span><br><br>
-                    ගම නියස මන්ත්‍රී ල.ම. ප්‍රමතිගලේ අනුකූල නුති සහ ඇ.ද. අනුකූල පරුක්‍ෂව හෝ පන්න ලබන පනත් පලම් පරිවර්තන.
+                    The above electrical lines have been completed in accordance with C.E.B standards.
+                    <br>
+                    I request you to pay the amount as per the above invoice.
                 </div>
             </div>
 
@@ -869,25 +888,29 @@
             <div class="signature-section">
                 <div class="signature-left">
                     <div class="signature-row">
-                        <div class="signature-label">කෝන්ත්‍රාත්කරුගේ අත්සන</div>
+                        <div class="signature-label">Contractor</div>
                         <div class="signature-line"></div>
                     </div>
                     <div class="signature-row">
-                        <div class="signature-label">නම.ප.නම. අත්සන</div>
+                        <div class="signature-label">C.E.B Linesmen</div>
                         <div class="signature-line"></div>
                     </div>
                     <div class="signature-row">
-                        <div class="signature-label">දි.ය. (ප.වේ.ම. /ප.නම.ය.)</div>
+                        <div class="signature-label">E.S. (C.S.C)</div>
                         <div class="signature-line"></div>
                     </div>
                 </div>
                 <div class="signature-right">
                     <div class="signature-row">
-                        <div class="signature-label">වේ.ඉ.නියමුත්කරුගේ සහතික</div>
+                        <div class="signature-label">Office E.S</div>
                         <div class="signature-line"></div>
                     </div>
                     <div class="signature-row">
-                        <div class="signature-label">වේ.ප.(ම.වි./ප.ප්‍රමුක්‍ෂ.</div>
+                        <div class="signature-label"></div>
+
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-label">Area Cheaf Engineer</div>
                         <div class="signature-line"></div>
                     </div>
                 </div>
@@ -920,7 +943,7 @@ function invoiceApp(){
              location: "",
              serviceNumber: "",
              reportDate: (new Date).toISOString().split("T")[0],
-             officeName: "Area Office - "
+             officeName: "CSC - Matara"
          },
         currentItem: {
             ino: "",
@@ -2589,7 +2612,7 @@ function invoiceApp(){
         },
 
         canAddItem() {
-            return this.currentItem.description && this.currentItem.rate > 0 && this.currentItem.quantity > 0;
+            return this.currentItem.description && this.currentItem.rate >= 0 && this.currentItem.quantity >= 0;
         },
 
         addLineItem() {
@@ -2630,7 +2653,10 @@ function invoiceApp(){
         formatDate(date) {
             if (!date) return "";
             const d = new Date(date);
-            return d.toLocaleDateString("en-GB");
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
         },
 
         printInvoice() {
@@ -2657,7 +2683,7 @@ function invoiceApp(){
                      location: "",
                      serviceNumber: "",
                      reportDate: (new Date).toISOString().split("T")[0],
-                     officeName: "Area Office - Matara"
+                     officeName: "CSC - Matara"
                  };
                 this.lineItems = [];
                 this.currentItem = {
