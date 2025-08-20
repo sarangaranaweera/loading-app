@@ -47,23 +47,19 @@
     </head><body><p style="text-align: center;"><u><b>නිම කරන ලද සේවා රැහැන්  / නිම කරන ලද බිඳ වැටුම් කාර්යයන් සඳහා වූ බිල්පත </b></u></p>
     <p>01. කොන්ත්‍රාත්කරුගේ නම සහ ලිපිනය: 
       <select class="dynamic-dropdown" id="contractor-dropdown">
-        <option value="අයි. ඒ  රණවීර, \"දම්පිය නිවාස\", නාරංගල, කරගොඩ උයන්ගොඩ." selected>අයි. ඒ  රණවීර, "දම්පිය නිවාස", නාරංගල, කරගොඩ උයන්ගොඩ.</option>
-        <option value="ජේ. බී. පෙරේරා, \"සුනිල් නිවාස\", මාතර, මාතර.">ජේ. බී. පෙරේරා, "සුනිල් නිවාස", මාතර, මාතර.</option>
-        <option value="එම්. එස්. සිල්වා, \"රන්මල් නිවාස\", ගාල්ල, ගාල්ල.">එම්. එස්. සිල්වා, "රන්මල් නිවාස", ගාල්ල, ගාල්ල.</option>
-        <option value="ආර්. ඩී. ජයවර්ධන, \"මහානිල් නිවාස\", කොළඹ, කොළඹ.">ආර්. ඩී. ජයවර්ධන, "මහානිල් නිවාස", කොළඹ, කොළඹ.</option>
+        <option value="" selected>Select Contractor</option>
+        <option value='අයි. ඒ  රණවීර, "දම්පිය නිවස", නාරංගල, කරගොඩ උයන්ගොඩ.' >අයි. ඒ  රණවීර, "දම්පිය නිවාස", නාරංගල, කරගොඩ උයන්ගොඩ.</option>
+        <option value='සී.එච් සෝමචන්ද්‍ර, ගොඩගම, මාතර.'>සී.එච් සෝමචන්ද්‍ර, ගොඩගම, මාතර.</option>
       </select>
-      <span class="dynamic-text" id="contractor-text">අයි. ඒ  රණවීර, "දම්පිය නිවාස", නාරංගල, කරගොඩ උයන්ගොඩ.</span>
+      <span class="dynamic-text" id="contractor-text"></span>
       <br>
       02. පාරිභෝගික සේවා මධ්‍යස්ථානය: 
       <select class="dynamic-dropdown" id="service-center-dropdown">
-        <option value="දික්වැල්ල." selected>දික්වැල්ල.</option>
-        <option value="මාතර.">මාතර.</option>
-        <option value="ගාල්ල.">ගාල්ල.</option>
-        <option value="කොළඹ.">කොළඹ.</option>
-        <option value="කුරුණෑගල.">කුරුණෑගල.</option>
-        <option value="අනුරාධපුර.">අනුරාධපුර.</option>
+        <option value="" selected>Select Service Center</option>
+        <option value="දික්වැල්ල." >දික්වැල්ල.</option>
+        <option value="මාතර.">කඹුරුපිටිය.</option>
       </select>
-      <span class="dynamic-text" id="service-center-text">දික්වැල්ල.</span>
+      <span class="dynamic-text" id="service-center-text"></span>
       බිල්පත ඉදිරිපත් කරන දිනය: <input type="text" style="border: none;"></p>
       <p>පහත සඳහන් කාර්ය අංක දරණ සේවා වැටීම් බින්දවටීම් කාර්යයන් සතුටුදායක ලෙස හා ලංවිම ප්‍රමිතීන්ට අනුකුලව නිම කරන ලද බැවින් ඒ සඳහා වූ බිල්පත් මේ සමග ගෙවීම් කටයුතු සඳහා කාරුණිකව ඉදිරිපත් කරමි.  
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -469,5 +465,17 @@
     $(document).click(function (e) {
         revert();
     });
+    
+    // Handle dynamic dropdown changes
+    $('#contractor-dropdown').on('change', function() {
+        var selectedValue = $(this).val();
+        $('#contractor-text').text(selectedValue);
+    });
+    
+    $('#service-center-dropdown').on('change', function() {
+        var selectedValue = $(this).val();
+        $('#service-center-text').text(selectedValue);
+    });
+    
     });
     </script></body></html>
