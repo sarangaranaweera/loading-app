@@ -15,7 +15,7 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
                 font-family: Arial, Helvetica, sans-serif;
-                font-size: 11px;
+                font-size: 10px;
             }
             .no-print {
                 display: none !important;
@@ -351,7 +351,7 @@
         .col-sn { width: 60px; text-align: left; }
         .col-description { flex: 1; }
         .col-unit { width: 40px; }
-        .col-rate { width: 50px; }
+        .col-rate { width: 80px; }
         .col-qty { width: 30px; }
         .col-amount { width: 70px; }
         .col-cert-qty { width: 50px; }
@@ -860,7 +860,7 @@
                         <div class="col-rate" style="text-align: right;" x-text="item.rate"></div>
                         <div class="col-qty" x-text="item.quantity"></div>
                         <div class="col-amount" style="text-align: right;" x-text="item.amount"></div>
-                        <div class="col-cert-qty" x-text="item.certifiedQty"></div>
+                        <div class="col-cert-qty" style="text-align: center;" x-text="parseInt(item.certifiedQty)"></div>
                         <div class="col-cert-amount" x-text="item.certifiedAmount"></div>
                     </div>
                 </template>
