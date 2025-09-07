@@ -858,9 +858,9 @@
                         <div class="col-sn" x-text="item.ino"></div>
                         <div class="col-description" x-text="item.description"></div>
                         <div class="col-rate" style="text-align: right;" x-text="item.rate"></div>
-                        <div class="col-qty" x-text="item.quantity"></div>
+                        <div class="col-qty" x-text="item.quantity ? (Number(item.quantity) % 1 === 0 ? parseInt(item.quantity) : item.quantity) : ''"></div>
                         <div class="col-amount" style="text-align: right;" x-text="item.amount"></div>
-                        <div class="col-cert-qty" style="text-align: center;" x-text="parseInt(item.certifiedQty)"></div>
+                        <div class="col-cert-qty" style="text-align: center;" x-text="item.certifiedQty"></div>
                         <div class="col-cert-amount" x-text="item.certifiedAmount"></div>
                     </div>
                 </template>
